@@ -56,7 +56,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
          if collectionView == self.target{
             print(indexPath);
-            puzzText.append("10");
+            puzzText.append("11");
             answerText[indexPath.row] = " ";
             target.reloadData();
             from.reloadData()

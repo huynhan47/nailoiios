@@ -62,7 +62,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             from.reloadData()
         }
          else{
-            answerText.append("6");
+            answerText.append("7");
             puzzText[indexPath.row] = " ";
             target.reloadData();
             from.reloadData();

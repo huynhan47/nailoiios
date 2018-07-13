@@ -14,7 +14,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var target: UICollectionView!
     @IBOutlet weak var from: UICollectionView!
     
-    var puzzText = ["1","2","3","4","5"]
+    var puzzText = ["1","2","3","4","6"]
     var answerText   = [" ", " ", " "," "," "] as Array
      var mappingText = [" ", " ", " "," "," "] as Array
     var currentIndex = 0 as Int?;

@@ -15,8 +15,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var from: UICollectionView!
     
     var puzzText = ["1","2","3","4","5"]
-    var answerText = ["1","2","3","4","5"]
-
+    var answerText   = [" ", " ", " "," "," "] as Array
+    var currentIndex = 0 as Int?;
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,18 +36,28 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         return 1;
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return puzzText.count;
+        if collectionView == self.target{
+            return puzzText.count;
+            
+        }
+        else
+            //if collectionView == self.from
+        {
+            return answerText.count;
+            
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.target{
         let cell:targetCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCellUnit", for: indexPath) as! targetCellUnit
         cell.backgroundColor = UIColor.red;
-        cell.targetLabel.text = puzzText[indexPath.row]
+        cell.targetLabel.text = answerText[indexPath.row]
             return cell;
         }
-        else{
+        else  //if collectionView == self.from
+        {
             let cell:fromCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "fromCellUnit", for: indexPath) as! fromCellUnit
-           
+            cell.fromLabel.text = puzzText[indexPath.row]
             cell.backgroundColor = UIColor.blue;
             return cell;
         }
@@ -55,15 +65,18 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
          if collectionView == self.target{
-            print(indexPath);
-            puzzText.append("41");
+            print(indexPath.row)
+            
+            puzzText.append("31");
             answerText[indexPath.row] = " ";
             target.reloadData();
             from.reloadData()
         }
-         else{
-            answerText.append("7");
-            puzzText[indexPath.row] = " ";
+         else if collectionView == self.from{
+           
+            answerText[currentIndex!] = puzzText[indexPath.row]
+            print(answerText[currentIndex!])
+            currentIndex?+=1;
             target.reloadData();
             from.reloadData();
             

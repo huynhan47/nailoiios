@@ -16,6 +16,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
     var puzzText = ["1","2","3","4","5"]
     var answerText   = [" ", " ", " "," "," "] as Array
+     var mappingText = [" ", " ", " "," "," "] as Array
     var currentIndex = 0 as Int?;
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,11 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.target{
-        let cell:targetCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCellUnit", for: indexPath) as! targetCellUnit
-        cell.backgroundColor = UIColor.red;
-        cell.targetLabel.text = answerText[indexPath.row]
+        if collectionView == self.target
+        {
+            let cell:targetCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCellUnit", for: indexPath) as! targetCellUnit
+            cell.backgroundColor = UIColor.red;
+            cell.targetLabel.text = answerText[indexPath.row]
             return cell;
         }
         else  //if collectionView == self.from
@@ -66,8 +68,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
          if collectionView == self.target{
             print(indexPath.row)
-            
-            puzzText.append("31");
+            currentIndex?-=1;
+            puzzText[Int(mappingText[indexPath.row])!] =  answerText[indexPath.row];
             answerText[indexPath.row] = " ";
             target.reloadData();
             from.reloadData()
@@ -75,6 +77,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
          else if collectionView == self.from{
            
             answerText[currentIndex!] = puzzText[indexPath.row]
+            mappingText[currentIndex!] = puzzText[indexPath.row];
+            puzzText[indexPath.row] = " ";
             print(answerText[currentIndex!])
             currentIndex?+=1;
             target.reloadData();

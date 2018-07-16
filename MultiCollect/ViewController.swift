@@ -14,9 +14,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var target: UICollectionView!
     @IBOutlet weak var from: UICollectionView!
     
-    var puzzText = ["1","2","3","4","6"]
+    var puzzText = ["a","r","3","4","6"]
+    var orgPuzzText = ["a","r","3","4","6"]
     var answerText   = [" ", " ", " "," "," "] as Array
-     var mappingText = [" ", " ", " "," "," "] as Array
+    var mappingText = [1,2,3,4,5,6,7,8] as Array
     var currentIndex = 0 as Int?;
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +70,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
          if collectionView == self.target{
             print(indexPath.row)
             currentIndex?-=1;
-            puzzText[Int(mappingText[indexPath.row])!] =  answerText[indexPath.row];
+            puzzText[Int(mappingText[indexPath.row])] =  answerText[indexPath.row];
+            //puzzText[mappingText[indexPath.row]] = answerText[indexPath.row]
             answerText[indexPath.row] = " ";
             target.reloadData();
             from.reloadData()
@@ -77,7 +79,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
          else if collectionView == self.from{
            
             answerText[currentIndex!] = puzzText[indexPath.row]
-            mappingText[currentIndex!] = puzzText[indexPath.row];
+            mappingText[currentIndex!] = indexPath.row;
             puzzText[indexPath.row] = " ";
             print(answerText[currentIndex!])
             currentIndex?+=1;

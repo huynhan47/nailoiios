@@ -16,12 +16,18 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
   
     @IBOutlet weak var heightConst: NSLayoutConstraint!
     
+    @IBOutlet weak var heightConstFrom: NSLayoutConstraint!
+   
+    @IBOutlet weak var imgQuestion: UIImageView!
     
-    var puzzText = ["a","r","3","4","6","6","7","8","a","r","3","4","6","6","7","8"]
-    var orgPuzzText = ["a","r","3","4","6","6","7","8","a","r","3","4","6","6","7","8"]
+    @IBOutlet weak var lblBitscore: UILabel!
+    var puzzText = ["L","A","I","C","H","U","2","0","1","8","S","T","U","I","O","S"]
+    var orgPuzzText = ["L","A","I","C","H","U"]
     var answerText   = [" ", " ", " "," "," "," ", " "," ", " ", " "," "," "," ", " "," ", " "] as Array
     var mappingText = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8] as Array
     var currentIndex = 0 as Int?;
+    var totalIndex = 0;
+    var Index : Int = 0;
     var height = CGFloat(3) ;
     let max = UIScreen.main.bounds .width;
     var spacing = CGFloat(3) ;
@@ -29,6 +35,9 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        print(genRandomText(orgTextArray: orgPuzzText, length: 16));
+        print(shuffle(array: puzzText))
         from.delegate = self;
         from.dataSource = self;
         
@@ -36,17 +45,43 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.dataSource = self;
         // Do any additional setup after loading the view, typically from a nib.
         
-        let numberOfItemsPerRow = 9;
-       let flowLayout = target.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        // make UI
+        
+        let numberOfItemsPerRow = 8;
+        let flowLayout = target.collectionViewLayout as! UICollectionViewFlowLayout
         
         spacing = max / 212;
         let totalSpace = flowLayout.sectionInset.left
             + flowLayout.sectionInset.right +
              (spacing * CGFloat(numberOfItemsPerRow - 1))
         size = Int((max - totalSpace) / CGFloat(numberOfItemsPerRow))
-        heightConst.constant = CGFloat(size*4)
+        
+        
+        heightConst.constant = (CGFloat(size) + (2*10))*2
+        heightConstFrom.constant = (CGFloat(size) + (2*10))*2
+        
+        from.contentInset.bottom = 10;
+        target.contentInset.top = 0;
+        
+        from.reloadData();
         target.reloadData();
-    
+        
+        
+        
+        ////////
+        
+        imgQuestion.image = UIImage(named: "quotes");
+        
+        ///////
+        
+        //lbl
+        //lblBitscore = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21)
+        
+        //lblBitscore.backgroundColor = UIColor(patternImage: UIImage(named: "bitscore")!)
+        //lbl
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
     
@@ -54,7 +89,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         //heightConst.constant = height
         //print("height1")
         //print(height)
-        target.reloadData();
+        //target.reloadData();
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,35 +132,43 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         {
             let cell:fromCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "fromCellUnit", for: indexPath) as! fromCellUnit
             cell.fromLabel.text = puzzText[indexPath.row]
-            cell.backgroundColor = UIColor.blue;
+            
+            cell.contentView.layer.cornerRadius = 10.0
+            cell.contentView.layer.borderWidth = 3.0
+            cell.contentView.layer.borderColor = UIColor.white.cgColor
+            cell.contentView.backgroundColor = UIColor.blue;
+            cell.contentView.layer.masksToBounds = true
             return cell;
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-         if collectionView == self.target{
+         if collectionView == self.target
+         {
             print(indexPath.row)
             currentIndex?-=1;
             puzzText[Int(mappingText[indexPath.row])] =  answerText[indexPath.row]; // revert puzzle text
     
             answerText[indexPath.row] = " "; //delete answer text
+            
+            if(currentIndex == totalIndex)
+            {
+                validAnswer();
+            }
            
         }
-         else if collectionView == self.from{
+         else if collectionView == self.from
+         {
            
             answerText[currentIndex!] = puzzText[indexPath.row] // display answer text
             mappingText[currentIndex!] = indexPath.row; //track the index of answer texr
             puzzText[indexPath.row] = " "; // delete the puzzle text
             print(answerText[currentIndex!])
             currentIndex?+=1;
-            
-           
-            
         }
-        let  height = collectionView.collectionViewLayout.collectionViewContentSize.height;
-        heightConst.constant = height
-        print("height")
-        print(height)
+        //let  height = collectionView.collectionViewLayout.collectionViewContentSize.height;
+        //heightConst.constant = height
+
         target.reloadData();
         from.reloadData();
     }
@@ -147,6 +190,36 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         //let width = UIScreen.main.bounds.width
         //print(CGSize(width: (width - 10)/11, height: (width - 10)/11))
         //return CGSize(width: (width - 10)/11, height: (width - 10)/11) // width & height are the same to make a square cell
+    }
+    func validAnswer ()
+    {
+        
+    }
+    func genRandomText(orgTextArray : Array<Any>, length : Int) -> Array<Any>{
+        let  offset = length - orgTextArray.count;
+        var resultArray = orgTextArray;
+        for _ in 1...offset
+        {
+            resultArray.append("A");
+        }
+        return resultArray;
+    }
+    
+    func shuffle(array: Array<String>) -> Array<String >{
+        var returnArray = array;
+        var m = array.count, i=0;
+        var t = "";
+        // Chừng nào vẫn còn phần tử chưa được xáo trộn thì vẫn tiếp tục
+        while  (m > 0 ){
+            // Lấy ra 1 phần tử
+            i = Int((drand48() * Double(m)));
+            m-=1;
+            // Sau đó xáo trộn nó
+            t = returnArray[m];
+            returnArray[m] = returnArray[i];
+            returnArray[i] = t;
+        }
+        return returnArray;
     }
     
 }

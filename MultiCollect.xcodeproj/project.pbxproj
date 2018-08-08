@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B489B0308D2C6B40646100B0 /* Pods_MultiCollect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A6DA7548AE8782F4CBAC18 /* Pods_MultiCollect.framework */; };
 		DB23805B20F347720072C98B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23805A20F347720072C98B /* AppDelegate.swift */; };
 		DB23805D20F347720072C98B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23805C20F347720072C98B /* ViewController.swift */; };
 		DB23806020F347720072C98B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23805E20F347720072C98B /* Main.storyboard */; };
 		DB23806220F347750072C98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB23806120F347750072C98B /* Assets.xcassets */; };
 		DB23806520F347750072C98B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23806320F347750072C98B /* LaunchScreen.storyboard */; };
 		DB23806D20F348320072C98B /* targetCellUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23806C20F348320072C98B /* targetCellUnit.swift */; };
+		DB2F1AC0211547800001B447 /* laichu1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1ABF211547800001B447 /* laichu1.sqlite */; };
+		DB2F1AC22118393F0001B447 /* M1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC12118393F0001B447 /* M1.jpg */; };
+		DB2F1AC4211AE41E0001B447 /* bitscore.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC3211AE41E0001B447 /* bitscore.png */; };
 		DB47AEB620F4A5C400F563BE /* fromCellUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CB2F7D973B164B7BB6640E8 /* Pods-MultiCollect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiCollect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiCollect/Pods-MultiCollect.release.xcconfig"; sourceTree = "<group>"; };
+		58A6DA7548AE8782F4CBAC18 /* Pods_MultiCollect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiCollect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4E99B83DCD4328A19212AA9 /* Pods-MultiCollect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiCollect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiCollect/Pods-MultiCollect.debug.xcconfig"; sourceTree = "<group>"; };
 		DB23805720F347720072C98B /* MultiCollect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiCollect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB23805A20F347720072C98B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB23805C20F347720072C98B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +32,9 @@
 		DB23806420F347750072C98B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB23806620F347750072C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB23806C20F348320072C98B /* targetCellUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetCellUnit.swift; sourceTree = "<group>"; };
+		DB2F1ABF211547800001B447 /* laichu1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = laichu1.sqlite; sourceTree = SOURCE_ROOT; };
+		DB2F1AC12118393F0001B447 /* M1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = M1.jpg; sourceTree = "<group>"; };
+		DB2F1AC3211AE41E0001B447 /* bitscore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitscore.png; sourceTree = "<group>"; };
 		DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fromCellUnit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B489B0308D2C6B40646100B0 /* Pods_MultiCollect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42620F7F39B8957C8FFBAB72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58A6DA7548AE8782F4CBAC18 /* Pods_MultiCollect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C93EC6C478F0D25BF4D1D71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4E99B83DCD4328A19212AA9 /* Pods-MultiCollect.debug.xcconfig */,
+				0CB2F7D973B164B7BB6640E8 /* Pods-MultiCollect.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DB23804E20F347720072C98B = {
 			isa = PBXGroup;
 			children = (
 				DB23805920F347720072C98B /* MultiCollect */,
 				DB23805820F347720072C98B /* Products */,
+				6C93EC6C478F0D25BF4D1D71 /* Pods */,
+				42620F7F39B8957C8FFBAB72 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,12 +88,15 @@
 		DB23805920F347720072C98B /* MultiCollect */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F1ABF211547800001B447 /* laichu1.sqlite */,
 				DB23805A20F347720072C98B /* AppDelegate.swift */,
 				DB23805C20F347720072C98B /* ViewController.swift */,
 				DB23805E20F347720072C98B /* Main.storyboard */,
 				DB23806C20F348320072C98B /* targetCellUnit.swift */,
 				DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */,
 				DB23806120F347750072C98B /* Assets.xcassets */,
+				DB2F1AC3211AE41E0001B447 /* bitscore.png */,
+				DB2F1AC12118393F0001B447 /* M1.jpg */,
 				DB23806320F347750072C98B /* LaunchScreen.storyboard */,
 				DB23806620F347750072C98B /* Info.plist */,
 			);
@@ -77,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB23806920F347750072C98B /* Build configuration list for PBXNativeTarget "MultiCollect" */;
 			buildPhases = (
+				7067D489138E634F50DD1EA5 /* [CP] Check Pods Manifest.lock */,
 				DB23805320F347720072C98B /* Sources */,
 				DB23805420F347720072C98B /* Frameworks */,
 				DB23805520F347720072C98B /* Resources */,
+				0B21CC233D6C11D4E3FA0441 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,13 +163,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2F1AC4211AE41E0001B447 /* bitscore.png in Resources */,
+				DB2F1AC22118393F0001B447 /* M1.jpg in Resources */,
 				DB23806520F347750072C98B /* LaunchScreen.storyboard in Resources */,
+				DB2F1AC0211547800001B447 /* laichu1.sqlite in Resources */,
 				DB23806220F347750072C98B /* Assets.xcassets in Resources */,
 				DB23806020F347720072C98B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B21CC233D6C11D4E3FA0441 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MultiCollect/Pods-MultiCollect-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiCollect/Pods-MultiCollect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7067D489138E634F50DD1EA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MultiCollect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB23805320F347720072C98B /* Sources */ = {
@@ -227,6 +304,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -280,12 +358,14 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		DB23806A20F347750072C98B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4E99B83DCD4328A19212AA9 /* Pods-MultiCollect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +383,7 @@
 		};
 		DB23806B20F347750072C98B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CB2F7D973B164B7BB6640E8 /* Pods-MultiCollect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

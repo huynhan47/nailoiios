@@ -14,10 +14,14 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var target: UICollectionView!
     @IBOutlet weak var from: UICollectionView!
   
+ 
     @IBOutlet weak var heightConst: NSLayoutConstraint!
-    
     @IBOutlet weak var heightConstFrom: NSLayoutConstraint!
    
+    @IBAction func Bingo(_ sender: Any) {
+        performSegue(withIdentifier: "Bingo", sender: self)
+    }
+    
     @IBOutlet weak var imgQuestion: UIImageView!
     
     @IBOutlet weak var lblBitscore: UILabel!
@@ -71,7 +75,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         ////////
         
-        imgQuestion.image = UIImage(named: "quotes");
+        ///imgQuestion.image = UIImage(named: "quotes");
         
         ///////
         
@@ -113,7 +117,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-   
+
         if collectionView == self.target
         {
             let cell:targetCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCellUnit", for: indexPath) as! targetCellUnit
@@ -127,6 +131,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             cell.contentView.layer.masksToBounds = true
          
             return cell;
+            
         }
         else  //if collectionView == self.from
         {
@@ -138,6 +143,9 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             cell.contentView.layer.borderColor = UIColor.white.cgColor
             cell.contentView.backgroundColor = UIColor.blue;
             cell.contentView.layer.masksToBounds = true
+            
+            
+            
             return cell;
         }
     }

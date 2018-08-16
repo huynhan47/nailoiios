@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B489B0308D2C6B40646100B0 /* Pods_MultiCollect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A6DA7548AE8782F4CBAC18 /* Pods_MultiCollect.framework */; };
+		DB00729D2123DCBF00A60A97 /* Bellerose.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB00729C2123DCBF00A60A97 /* Bellerose.ttf */; };
+		DB00729F2123FECF00A60A97 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00729E2123FECF00A60A97 /* WelcomeController.swift */; };
+		DB0072A12124256100A60A97 /* welcome_bg_dhlc.png in Resources */ = {isa = PBXBuildFile; fileRef = DB0072A02124256100A60A97 /* welcome_bg_dhlc.png */; };
 		DB23805B20F347720072C98B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23805A20F347720072C98B /* AppDelegate.swift */; };
 		DB23805D20F347720072C98B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23805C20F347720072C98B /* ViewController.swift */; };
 		DB23806020F347720072C98B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23805E20F347720072C98B /* Main.storyboard */; };
@@ -20,12 +23,21 @@
 		DB2F1AC6211C2EB30001B447 /* framepng.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC5211C2EB30001B447 /* framepng.png */; };
 		DB2F1AC8211C2EFB0001B447 /* h_0033.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC7211C2EFB0001B447 /* h_0033.png */; };
 		DB47AEB620F4A5C400F563BE /* fromCellUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */; };
+		DBCD26D521253386007BCFF2 /* btc_award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D321253385007BCFF2 /* btc_award.png */; };
+		DBCD26D621253386007BCFF2 /* award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D421253385007BCFF2 /* award.png */; };
+		DBCD26D821253793007BCFF2 /* welcome_bg_dhlc.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D721253792007BCFF2 /* welcome_bg_dhlc.png */; };
+		DBDD3EC821228E8E006F571D /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD3EC721228E8E006F571D /* ResultController.swift */; };
+		DBDD3ECA2122AFF5006F571D /* btc_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDD3EC92122AFF5006F571D /* btc_icon.png */; };
+		DBDD3ECC2122C28E006F571D /* ok_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDD3ECB2122C28E006F571D /* ok_1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0CB2F7D973B164B7BB6640E8 /* Pods-MultiCollect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiCollect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiCollect/Pods-MultiCollect.release.xcconfig"; sourceTree = "<group>"; };
 		58A6DA7548AE8782F4CBAC18 /* Pods_MultiCollect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiCollect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E99B83DCD4328A19212AA9 /* Pods-MultiCollect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiCollect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiCollect/Pods-MultiCollect.debug.xcconfig"; sourceTree = "<group>"; };
+		DB00729C2123DCBF00A60A97 /* Bellerose.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bellerose.ttf; sourceTree = "<group>"; };
+		DB00729E2123FECF00A60A97 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		DB0072A02124256100A60A97 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_dhlc.png; sourceTree = "<group>"; };
 		DB23805720F347720072C98B /* MultiCollect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiCollect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB23805A20F347720072C98B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB23805C20F347720072C98B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +52,12 @@
 		DB2F1AC5211C2EB30001B447 /* framepng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = framepng.png; sourceTree = "<group>"; };
 		DB2F1AC7211C2EFB0001B447 /* h_0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0033.png; sourceTree = "<group>"; };
 		DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fromCellUnit.swift; sourceTree = "<group>"; };
+		DBCD26D321253385007BCFF2 /* btc_award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btc_award.png; sourceTree = "<group>"; };
+		DBCD26D421253385007BCFF2 /* award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = award.png; sourceTree = "<group>"; };
+		DBCD26D721253792007BCFF2 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome_bg_dhlc.png; path = ../../../main/res/drawable/welcome_bg_dhlc.png; sourceTree = "<group>"; };
+		DBDD3EC721228E8E006F571D /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
+		DBDD3EC92122AFF5006F571D /* btc_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btc_icon.png; sourceTree = "<group>"; };
+		DBDD3ECB2122C28E006F571D /* ok_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +110,19 @@
 		DB23805920F347720072C98B /* MultiCollect */ = {
 			isa = PBXGroup;
 			children = (
+				DBCD26D721253792007BCFF2 /* welcome_bg_dhlc.png */,
+				DBCD26D421253385007BCFF2 /* award.png */,
+				DBCD26D321253385007BCFF2 /* btc_award.png */,
+				DB0072A02124256100A60A97 /* welcome_bg_dhlc.png */,
+				DB00729C2123DCBF00A60A97 /* Bellerose.ttf */,
+				DBDD3ECB2122C28E006F571D /* ok_1.png */,
+				DBDD3EC92122AFF5006F571D /* btc_icon.png */,
+				DBDD3EC721228E8E006F571D /* ResultController.swift */,
 				DB2F1ABF211547800001B447 /* laichu1.sqlite */,
 				DB23805A20F347720072C98B /* AppDelegate.swift */,
 				DB23805C20F347720072C98B /* ViewController.swift */,
 				DB23805E20F347720072C98B /* Main.storyboard */,
+				DB00729E2123FECF00A60A97 /* WelcomeController.swift */,
 				DB23806C20F348320072C98B /* targetCellUnit.swift */,
 				DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */,
 				DB23806120F347750072C98B /* Assets.xcassets */,
@@ -169,11 +196,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCD26D521253386007BCFF2 /* btc_award.png in Resources */,
+				DBCD26D821253793007BCFF2 /* welcome_bg_dhlc.png in Resources */,
+				DB00729D2123DCBF00A60A97 /* Bellerose.ttf in Resources */,
 				DB2F1AC4211AE41E0001B447 /* bitscore.png in Resources */,
+				DBDD3ECC2122C28E006F571D /* ok_1.png in Resources */,
 				DB2F1AC22118393F0001B447 /* M1.jpg in Resources */,
+				DB0072A12124256100A60A97 /* welcome_bg_dhlc.png in Resources */,
 				DB2F1AC8211C2EFB0001B447 /* h_0033.png in Resources */,
+				DBCD26D621253386007BCFF2 /* award.png in Resources */,
 				DB23806520F347750072C98B /* LaunchScreen.storyboard in Resources */,
 				DB2F1AC0211547800001B447 /* laichu1.sqlite in Resources */,
+				DBDD3ECA2122AFF5006F571D /* btc_icon.png in Resources */,
 				DB2F1AC6211C2EB30001B447 /* framepng.png in Resources */,
 				DB23806220F347750072C98B /* Assets.xcassets in Resources */,
 				DB23806020F347720072C98B /* Main.storyboard in Resources */,
@@ -226,8 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB00729F2123FECF00A60A97 /* WelcomeController.swift in Sources */,
 				DB23806D20F348320072C98B /* targetCellUnit.swift in Sources */,
 				DB47AEB620F4A5C400F563BE /* fromCellUnit.swift in Sources */,
+				DBDD3EC821228E8E006F571D /* ResultController.swift in Sources */,
 				DB23805D20F347720072C98B /* ViewController.swift in Sources */,
 				DB23805B20F347720072C98B /* AppDelegate.swift in Sources */,
 			);

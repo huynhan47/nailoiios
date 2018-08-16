@@ -179,6 +179,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
 
         target.reloadData();
         from.reloadData();
+        
+       performSegue(withIdentifier: "Bingo", sender: self)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

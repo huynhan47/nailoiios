@@ -62,8 +62,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         size = Int((max - totalSpace) / CGFloat(numberOfItemsPerRow))
         
         
-        heightConst.constant = (CGFloat(size) + (2*10))*2
-        heightConstFrom.constant = (CGFloat(size) + (2*10))*2
+        heightConst.constant = (CGFloat(size) + 10)*2
+        heightConstFrom.constant = (CGFloat(size) + 10)*2
         
         from.contentInset.bottom = 10;
         target.contentInset.top = 0;
@@ -180,7 +180,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.reloadData();
         from.reloadData();
         
-       performSegue(withIdentifier: "Bingo", sender: self)
+       ////performSegue(withIdentifier: "Bingo", sender: self)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

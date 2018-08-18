@@ -25,7 +25,11 @@
 		DB47AEB620F4A5C400F563BE /* fromCellUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */; };
 		DBCD26D521253386007BCFF2 /* btc_award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D321253385007BCFF2 /* btc_award.png */; };
 		DBCD26D621253386007BCFF2 /* award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D421253385007BCFF2 /* award.png */; };
-		DBCD26D821253793007BCFF2 /* welcome_bg_dhlc.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D721253792007BCFF2 /* welcome_bg_dhlc.png */; };
+		DBCD26DA21255730007BCFF2 /* play_retro_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D92125572F007BCFF2 /* play_retro_button.png */; };
+		DBCD26DC212559F3007BCFF2 /* welcome_bg_dhlc.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */; };
+		DBCD26DF21255EE7007BCFF2 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26DD21255EE5007BCFF2 /* clock.png */; };
+		DBCD26E021255EE7007BCFF2 /* shareapp_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26DE21255EE6007BCFF2 /* shareapp_icon.png */; };
+		DBCD26E221256068007BCFF2 /* bitcoin_earn_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26E121256067007BCFF2 /* bitcoin_earn_logo.png */; };
 		DBDD3EC821228E8E006F571D /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD3EC721228E8E006F571D /* ResultController.swift */; };
 		DBDD3ECA2122AFF5006F571D /* btc_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDD3EC92122AFF5006F571D /* btc_icon.png */; };
 		DBDD3ECC2122C28E006F571D /* ok_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDD3ECB2122C28E006F571D /* ok_1.png */; };
@@ -54,7 +58,11 @@
 		DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fromCellUnit.swift; sourceTree = "<group>"; };
 		DBCD26D321253385007BCFF2 /* btc_award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btc_award.png; sourceTree = "<group>"; };
 		DBCD26D421253385007BCFF2 /* award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = award.png; sourceTree = "<group>"; };
-		DBCD26D721253792007BCFF2 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome_bg_dhlc.png; path = ../../../main/res/drawable/welcome_bg_dhlc.png; sourceTree = "<group>"; };
+		DBCD26D92125572F007BCFF2 /* play_retro_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_retro_button.png; sourceTree = "<group>"; };
+		DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome_bg_dhlc.png; path = "../../../main/res/drawable-xhdpi/welcome_bg_dhlc.png"; sourceTree = "<group>"; };
+		DBCD26DD21255EE5007BCFF2 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		DBCD26DE21255EE6007BCFF2 /* shareapp_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareapp_icon.png; sourceTree = "<group>"; };
+		DBCD26E121256067007BCFF2 /* bitcoin_earn_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitcoin_earn_logo.png; sourceTree = "<group>"; };
 		DBDD3EC721228E8E006F571D /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 		DBDD3EC92122AFF5006F571D /* btc_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btc_icon.png; sourceTree = "<group>"; };
 		DBDD3ECB2122C28E006F571D /* ok_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_1.png; sourceTree = "<group>"; };
@@ -110,7 +118,11 @@
 		DB23805920F347720072C98B /* MultiCollect */ = {
 			isa = PBXGroup;
 			children = (
-				DBCD26D721253792007BCFF2 /* welcome_bg_dhlc.png */,
+				DBCD26E121256067007BCFF2 /* bitcoin_earn_logo.png */,
+				DBCD26DD21255EE5007BCFF2 /* clock.png */,
+				DBCD26DE21255EE6007BCFF2 /* shareapp_icon.png */,
+				DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */,
+				DBCD26D92125572F007BCFF2 /* play_retro_button.png */,
 				DBCD26D421253385007BCFF2 /* award.png */,
 				DBCD26D321253385007BCFF2 /* btc_award.png */,
 				DB0072A02124256100A60A97 /* welcome_bg_dhlc.png */,
@@ -197,19 +209,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBCD26D521253386007BCFF2 /* btc_award.png in Resources */,
-				DBCD26D821253793007BCFF2 /* welcome_bg_dhlc.png in Resources */,
 				DB00729D2123DCBF00A60A97 /* Bellerose.ttf in Resources */,
+				DBCD26DF21255EE7007BCFF2 /* clock.png in Resources */,
 				DB2F1AC4211AE41E0001B447 /* bitscore.png in Resources */,
+				DBCD26DA21255730007BCFF2 /* play_retro_button.png in Resources */,
 				DBDD3ECC2122C28E006F571D /* ok_1.png in Resources */,
 				DB2F1AC22118393F0001B447 /* M1.jpg in Resources */,
 				DB0072A12124256100A60A97 /* welcome_bg_dhlc.png in Resources */,
 				DB2F1AC8211C2EFB0001B447 /* h_0033.png in Resources */,
 				DBCD26D621253386007BCFF2 /* award.png in Resources */,
 				DB23806520F347750072C98B /* LaunchScreen.storyboard in Resources */,
+				DBCD26DC212559F3007BCFF2 /* welcome_bg_dhlc.png in Resources */,
 				DB2F1AC0211547800001B447 /* laichu1.sqlite in Resources */,
+				DBCD26E221256068007BCFF2 /* bitcoin_earn_logo.png in Resources */,
 				DBDD3ECA2122AFF5006F571D /* btc_icon.png in Resources */,
 				DB2F1AC6211C2EB30001B447 /* framepng.png in Resources */,
 				DB23806220F347750072C98B /* Assets.xcassets in Resources */,
+				DBCD26E021255EE7007BCFF2 /* shareapp_icon.png in Resources */,
 				DB23806020F347720072C98B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

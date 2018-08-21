@@ -8,4 +8,5 @@ target 'MultiCollect' do
   # Pods for MultiCollect
   pod 'SQLite.swift', :git => 'https://github.com/stephencelis/SQLite.swift.git'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Toast-Swift'
 end

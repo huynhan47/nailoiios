@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 import iAd
-
+import Toast_Swift
 
 class ViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
@@ -39,9 +39,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     let max = UIScreen.main.bounds .width;
     var spacing = CGFloat(3) ;
     var size = 3 ;
-    
-    
-  
+
     @IBOutlet weak var Banner: GADBannerView!
     
     
@@ -204,6 +202,14 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         from.reloadData();
         
        ////performSegue(withIdentifier: "Bingo", sender: self)
+        self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), title: "Toast Title", image: UIImage(named: "clock.png")) { didTap in
+            if didTap {
+                print("completion from tap")
+            } else {
+                print("completion without tap")
+            }
+        }
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

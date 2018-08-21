@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
+import iAd
+
 
 class ViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
@@ -36,6 +39,22 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     let max = UIScreen.main.bounds .width;
     var spacing = CGFloat(3) ;
     var size = 3 ;
+    
+    
+  
+    @IBOutlet weak var Banner: GADBannerView!
+    
+    
+    //Ad
+    lazy var adBannerView: GADBannerView = {
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        
+        return adBannerView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,8 +90,12 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         from.reloadData();
         target.reloadData();
         
+        //Ad
+
         
-        
+        Banner.adUnitID="ca-app-pub-3940256099942544/2934735716";
+        Banner.rootViewController = self
+        Banner.load(GADRequest());
         ////////
         
         ///imgQuestion.image = UIImage(named: "quotes");
@@ -232,5 +255,34 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         return returnArray;
     }
     
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return adBannerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return adBannerView.frame.height
+    }
+}
+
+extension ViewController: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
+        
+        // Reposition the banner ad to create a slide down effect
+        let translateTransform = CGAffineTransform(translationX: 0, y: -bannerView.bounds.size.height)
+        bannerView.transform = translateTransform
+        
+        UIView.animate(withDuration: 0.5) {
+            bannerView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
+    }
 }
 

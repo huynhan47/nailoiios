@@ -30,16 +30,15 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var lblBitscore: UILabel!
     var puzzText = ["L","A","I","C","H","U","2","0","1","8","S","T","U","I","O","S"]
     var orgPuzzText = ["L","A","I","C","H","U"]
-    var answerText   = [" ", " ", " "," "," "," ", " "," ", " ", " "," "," "," ", " "," ", " "] as Array
+    var answerText   = [" ", " ", " "," "," "," "] as Array
     var mappingText = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8] as Array
     var currentIndex = 0 as Int?;
-    var totalIndex = 0;
+    var totalIndex = 6;
     var Index : Int = 0;
     var height = CGFloat(3) ;
     let max = UIScreen.main.bounds .width;
     var spacing = CGFloat(3) ;
     var size = 3 ;
-
     @IBOutlet weak var Banner: GADBannerView!
     
     
@@ -52,6 +51,18 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         return adBannerView
     }()
+    
+    
+    @IBAction func LetShare(_ sender: Any) {
+        let activityVC = UIActivityViewController(activityItems: ["String to share"],applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
+        if let popOver = activityVC.popoverPresentationController {
+            popOver.sourceView = self.view
+            //popOver.sourceRect =
+            //popOver.barButtonItem
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +79,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         
         // make UI
-        
+        //From UI
         let numberOfItemsPerRow = 8;
         let flowLayout = target.collectionViewLayout as! UICollectionViewFlowLayout
         
@@ -78,14 +89,23 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
              (spacing * CGFloat(numberOfItemsPerRow - 1))
         size = Int((max - totalSpace) / CGFloat(numberOfItemsPerRow))
         
-        
-        heightConst.constant = (CGFloat(size) + 10)*2
         heightConstFrom.constant = (CGFloat(size) + 10)*2
-        
         from.contentInset.bottom = 10;
-        target.contentInset.top = 0;
-        
         from.reloadData();
+      
+        
+        //Target UI
+        let numberOfItemsPerRowTarget = 8;
+        let flowLayoutTarget = target.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        spacing = max / 212;
+        let totalSpaceTarget = flowLayoutTarget.sectionInset.left
+            + flowLayoutTarget.sectionInset.right +
+            (spacing * CGFloat(numberOfItemsPerRowTarget - 1))
+        size = Int((max - totalSpaceTarget) / CGFloat(numberOfItemsPerRowTarget))
+        
+        heightConst.constant = CGFloat(size) + 10
+        target.contentInset.top = 0;
         target.reloadData();
         
         //Ad
@@ -128,12 +148,12 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         if collectionView == self.target
         {
-            return puzzText.count;
+            return answerText.count;
         }
         else
             //if collectionView == self.from
         {
-            return answerText.count;
+            return puzzText.count;
             
         }
     }
@@ -141,6 +161,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
 
         if collectionView == self.target
         {
+            
             let cell:targetCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCellUnit", for: indexPath) as! targetCellUnit
             //cell.backgroundColor = UIColor.red;
             cell.targetLabel.text = answerText[indexPath.row]
@@ -170,6 +191,15 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             return cell;
         }
     }
+    func captureScreen() -> UIImage {
+        var window: UIWindow? = UIApplication.shared.keyWindow
+        window = UIApplication.shared.windows[0] as? UIWindow
+        UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
+        window!.layer.render(in:UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!;
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
          if collectionView == self.target
@@ -179,12 +209,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             puzzText[Int(mappingText[indexPath.row])] =  answerText[indexPath.row]; // revert puzzle text
     
             answerText[indexPath.row] = " "; //delete answer text
-            
-            if(currentIndex == totalIndex)
-            {
-                validAnswer();
-            }
-           
         }
          else if collectionView == self.from
          {
@@ -194,6 +218,12 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             puzzText[indexPath.row] = " "; // delete the puzzle text
             print(answerText[currentIndex!])
             currentIndex?+=1;
+            
+            if(currentIndex == totalIndex)
+            {
+                validAnswer();
+            }
+            
         }
         //let  height = collectionView.collectionViewLayout.collectionViewContentSize.height;
         //heightConst.constant = height
@@ -202,20 +232,35 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         from.reloadData();
         
        ////performSegue(withIdentifier: "Bingo", sender: self)
-        self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), title: "Toast Title", image: UIImage(named: "clock.png")) { didTap in
-            if didTap {
-                print("completion from tap")
-            } else {
-                print("completion without tap")
-            }
-        }
+        //self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), title: "Toast Title", image: UIImage(named: "clock.png")) { didTap in
+        //    if didTap {
+        //        print("completion from tap")
+        //    } else {
+        //        print("completion without tap")
+        //    }
+      //  }
         
+        ///self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), ///title: "Toast Title", image: captureScreen()) { didTap in
+         ///   if didTap {
+         ///       print("completion from tap")
+          ///  } else {
+          ///      print("completion without tap")
+           /// }
+       /// }
+        
+        ///let extractedExpr = captureScreen();
+        ///let activityVC = UIActivityViewController(activityItems: [["String to share"], extractedExpr],applicationActivities: nil)
+       /// present(activityVC, animated: true, completion: nil)
+       /// if let popOver = activityVC.popoverPresentationController {
+        ///    popOver.sourceView = self.view
+        ///..}
+            
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
 
-        print("size");
-        print(size)
+        //print("size");
+        //print(size)
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.minimumInteritemSpacing = spacing;
         //print("height2")
@@ -232,8 +277,21 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     }
     func validAnswer ()
     {
+        let AnswerString = answerText.joined();
+        let OrgPuzzleString = orgPuzzText.joined();
+        if (AnswerString == OrgPuzzleString)
+        {
+            print("Bingo");
+        }
+        else
+        {
+            print("Wrong");
+        }
         
     }
+    
+   
+    
     func genRandomText(orgTextArray : Array<Any>, length : Int) -> Array<Any>{
         let  offset = length - orgTextArray.count;
         var resultArray = orgTextArray;

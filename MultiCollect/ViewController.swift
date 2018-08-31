@@ -10,6 +10,7 @@ import UIKit
 import GoogleMobileAds
 import iAd
 import Toast_Swift
+import SQLite
 
 class ViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
@@ -40,6 +41,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var spacing = CGFloat(3) ;
     var size = 3 ;
     @IBOutlet weak var Banner: GADBannerView!
+    let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
+    
+    var finishList :String? = "\"0000\"";
+    let defaults = UserDefaults.standard;
     
     
     //Ad
@@ -126,6 +131,68 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         //lblBitscore.backgroundColor = UIColor(patternImage: UIImage(named: "bitscore")!)
         //lbl
         
+        //DataBase
+        var db = try? Connection();
+        let laichus = Table("laichu");
+        let id = Expression<String?>("id")
+        let letters = Expression<String?>("letters")
+        do{
+            db = try Connection(path!)
+        }
+        catch{
+            let err1 = error as NSError
+            print("error occurred, here are the details1:\n \(err1)")
+            
+        }
+        //for laichu in try db!.prepare(laichus) {
+        //    print("id: \(laichu[id]), name: \(user[name]), email: \(user[email])")
+            // id: 1, name: Optional("Alice"), email: alice@mac.com
+        //}
+        do {
+            
+            for laichu in try db!.prepare(laichus) {
+                print("id: \(laichu[id]!)")
+                // id: 1, name: Optional("Alice"), email: alice@mac.com
+            }
+            // SELECT * FROM "users"
+        }
+        catch{
+            let err2 = error as NSError
+            print("error occurred, here are the details2:\n \(err2)")
+            
+        }
+        
+        //try! db!.prepare(laichus)
+   
+        let question = laichus.filter(letters == "B_I_E_T_T_H_U")
+        
+        for row in try! db!.prepare(question)
+        {
+            print("id ne 0: \(row[id]!)")
+        }
+        
+        for row in try! db!.prepare("SELECT * FROM LAICHU WHERE ID NOT IN (\"0007\", \"0009\") ORDER BY ID ASC LIMIT 1 ") {
+            print("id ne 1: \(row[1]!)")
+        }
+        
+        //User Default
+        
+        
+        finishList =  defaults.string(forKey: "finishList");
+        if (finishList == nil)
+        {
+            finishList = "\"0005\"";
+        }
+        print(finishList!)
+        
+        defaults.set("\"0003\"", forKey: "finishList")
+        finishList =  defaults.string(forKey: "finishList");
+        if (finishList == nil)
+        {
+            finishList = "\"0005\"";
+        }
+         print(finishList!)
+       
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -185,9 +252,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             cell.contentView.layer.borderColor = UIColor.white.cgColor
             cell.contentView.backgroundColor = UIColor.blue;
             cell.contentView.layer.masksToBounds = true
-            
-            
-            
+   
             return cell;
         }
     }
@@ -200,6 +265,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         UIGraphicsEndImageContext()
         return image!;
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
          if collectionView == self.target

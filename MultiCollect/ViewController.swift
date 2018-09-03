@@ -29,12 +29,12 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var imgQuestion: UIImageView!
     
     @IBOutlet weak var lblBitscore: UILabel!
-    var puzzText = ["L","A","I","C","H","U","2","0","1","8","S","T","U","I","O","S"]
-    var orgPuzzText = ["L","A","I","C","H","U"]
-    var answerText   = [" ", " ", " "," "," "," "] as Array
+    var puzzText = ["L","A","I","C","H","U","2","0","1","8","S","T","U","D","I","O"]
+    //var orgPuzzText = ["L","A","I","C","H","U"]
+    var answerText   = [" ", " ", " "," "," "," "," "," "] as Array
     var mappingText = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8] as Array
     var currentIndex = 0 as Int?;
-    var totalIndex = 6;
+    var totalIndex = 0;
     var Index : Int = 0;
     var height = CGFloat(3) ;
     let max = UIScreen.main.bounds .width;
@@ -43,8 +43,11 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var Banner: GADBannerView!
     let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
     
+    var imgQuestionName :String = "h_0007";
     var finishList :String? = "\"0000\"";
     let defaults = UserDefaults.standard;
+    var OrgPuzzleString = "";
+    var currentQuestionID : String?;
     
     
     //Ad
@@ -72,8 +75,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        print(genRandomText(orgTextArray: orgPuzzText, length: 16));
         print(shuffle(array: puzzText))
         from.delegate = self;
         from.dataSource = self;
@@ -114,15 +115,12 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.reloadData();
         
         //Ad
-
         
         Banner.adUnitID="ca-app-pub-3940256099942544/2934735716";
         Banner.rootViewController = self
         Banner.load(GADRequest());
         ////////
-        
-        ///imgQuestion.image = UIImage(named: "quotes");
-        
+        imgQuestion.image = UIImage(named: "clock");
         ///////
         
         //lbl
@@ -170,28 +168,52 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         {
             print("id ne 0: \(row[id]!)")
         }
-        
-        for row in try! db!.prepare("SELECT * FROM LAICHU WHERE ID NOT IN (\"0007\", \"0009\") ORDER BY ID ASC LIMIT 1 ") {
-            print("id ne 1: \(row[1]!)")
-        }
-        
-        //User Default
-        
-        
+      
         finishList =  defaults.string(forKey: "finishList");
         if (finishList == nil)
         {
-            finishList = "\"0005\"";
+            finishList = "\"0000\"";
         }
         print(finishList!)
         
-        defaults.set("\"0003\"", forKey: "finishList")
-        finishList =  defaults.string(forKey: "finishList");
-        if (finishList == nil)
+        //defaults.set("\"0003\"", forKey: "finishList")
+        //finishList =  defaults.string(forKey: "finishList");
+        //if (finishList == nil)
+        //{
+        //    finishList = "\"0005\"";
+        //}
+        print(finishList!)
+        
+        //User Default - End
+        
+        let sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
+        print("sql ne: " + sql)
+        for row in try! db!.prepare(sql)
         {
-            finishList = "\"0005\"";
+            print("id ne 1: \(row[1]!)")
+            currentQuestionID =  (row[0]) as? String
+            imgQuestionName =  "h_" + currentQuestionID!
+            OrgPuzzleString = row[2] as! String
+            answerText = Array<String>(repeating: " ", count: OrgPuzzleString.split(separator: "_").count)
+            totalIndex = answerText.count;
+            let orgPuzzle = OrgPuzzleString.split(separator: "_")
+            var orgPuzzleArray : [String] = []
+            for i in 0 ..< orgPuzzle.count
+            {
+                if (orgPuzzle[i] != "_")
+                {
+                    orgPuzzleArray.append(String(orgPuzzle[i]))
+                }
+            }
+            puzzText =  shuffle(array:  genRandomText(orgTextArray: orgPuzzleArray, length: 16))
+            
         }
-         print(finishList!)
+        print("imgQuestionName ne :"  +  imgQuestionName);
+        imgQuestion.image = UIImage(named: imgQuestionName);
+        
+        //User Default - Start
+        
+        
        
         
     }
@@ -215,7 +237,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         if collectionView == self.target
         {
-            return answerText.count;
+            return OrgPuzzleString.split(separator: "_").count;
         }
         else
             //if collectionView == self.from
@@ -343,11 +365,13 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     }
     func validAnswer ()
     {
-        let AnswerString = answerText.joined();
-        let OrgPuzzleString = orgPuzzText.joined();
+        let AnswerString = answerText.joined(separator: "_");
+        ///let OrgPuzzleString = orgPuzzText.joined();
         if (AnswerString == OrgPuzzleString)
         {
             print("Bingo");
+            finishList! += (",\"" + currentQuestionID! + "\"")
+            defaults.set(finishList!, forKey: "finishList")
         }
         else
         {
@@ -358,14 +382,18 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
    
     
-    func genRandomText(orgTextArray : Array<Any>, length : Int) -> Array<Any>{
-        let  offset = length - orgTextArray.count;
+    func genRandomText(orgTextArray : [String], length : Int) -> [String]{
+        let textRemain = length - orgTextArray.count;
         var resultArray = orgTextArray;
-        for _ in 1...offset
+        let abcString : String = "ABCDEFGHIKLMNOPQRSTUVXY";
+       
+        ///let abcArray : [Character] = Array(abcString)
+        for _ in 1...textRemain
         {
-            resultArray.append("A");
+            let offset = Int(arc4random_uniform(23));
+            resultArray.append(abcString.subString(from : offset, to: (offset)));
         }
-        return resultArray;
+        return resultArray
     }
     
     func shuffle(array: Array<String>) -> Array<String >{
@@ -413,6 +441,14 @@ extension ViewController: GADBannerViewDelegate {
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print("Fail to receive ads")
         print(error)
+    }
+}
+
+extension String {
+    func subString(from: Int, to: Int) -> String {
+        let startIndex = self.index(self.startIndex, offsetBy: from)
+        let endIndex = self.index(self.startIndex, offsetBy: to)
+        return String(self[startIndex...endIndex])
     }
 }
 

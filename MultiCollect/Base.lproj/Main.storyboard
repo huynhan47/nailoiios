@@ -74,20 +74,20 @@
                                 <rect key="frame" x="17.666666666666657" y="658" width="340" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U5b-yb-9pJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd7-QO-tkl">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="iwC-08-a75"/>
                                                 </constraints>
-                                                <inset key="contentEdgeInsets" minX="36" minY="0.0" maxX="36" maxY="0.0"/>
+                                                <inset key="contentEdgeInsets" minX="26" minY="0.0" maxX="26" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="bitcoin_earn_logo.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bax-4T-ngd">
-                                                <rect key="frame" x="0.0" y="48" width="120" height="22"/>
+                                                <rect key="frame" x="0.0" y="48" width="100" height="22"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="jdj-28-VRh"/>
+                                                    <constraint firstAttribute="width" constant="100" id="jdj-28-VRh"/>
                                                     <constraint firstAttribute="height" constant="22" id="o5E-dV-6ST"/>
                                                 </constraints>
                                                 <attributedString key="attributedText">
@@ -106,14 +106,15 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vhT-Fb-8pb">
-                                        <rect key="frame" x="140" y="0.0" width="100" height="70"/>
+                                        <rect key="frame" x="120" y="0.0" width="100" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-k1-58F">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="4Fj-oF-khe"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="clock.png"/>
+                                                <inset key="contentEdgeInsets" minX="26" minY="0.0" maxX="26" maxY="0.0"/>
+                                                <state key="normal" image="clock.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chơi Từ Đầu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6c-zY-aMK">
                                                 <rect key="frame" x="0.0" y="48" width="100" height="22"/>
@@ -127,19 +128,20 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ng1-0x-YyR">
-                                        <rect key="frame" x="260" y="0.0" width="80" height="70"/>
+                                        <rect key="frame" x="240" y="0.0" width="100" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKv-O8-ohR">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="T4c-LW-UxW"/>
                                                 </constraints>
+                                                <inset key="contentEdgeInsets" minX="26" minY="0.0" maxX="26" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="shareapp_icon.png"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chia Sẻ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZC-P0-x15">
-                                                <rect key="frame" x="0.0" y="48" width="80" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chia Sẻ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZC-P0-x15">
+                                                <rect key="frame" x="0.0" y="48" width="100" height="22"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="ZIZ-m6-229"/>
+                                                    <constraint firstAttribute="width" constant="100" id="ZIZ-m6-229"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>

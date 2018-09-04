@@ -10,7 +10,6 @@
 		B489B0308D2C6B40646100B0 /* Pods_MultiCollect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A6DA7548AE8782F4CBAC18 /* Pods_MultiCollect.framework */; };
 		DB00729D2123DCBF00A60A97 /* Bellerose.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB00729C2123DCBF00A60A97 /* Bellerose.ttf */; };
 		DB00729F2123FECF00A60A97 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00729E2123FECF00A60A97 /* WelcomeController.swift */; };
-		DB0072A12124256100A60A97 /* welcome_bg_dhlc.png in Resources */ = {isa = PBXBuildFile; fileRef = DB0072A02124256100A60A97 /* welcome_bg_dhlc.png */; };
 		DB150D01213A6EF3008677C7 /* h_0028.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CD8213A6EEE008677C7 /* h_0028.png */; };
 		DB150D02213A6EF3008677C7 /* h_0087.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CD9213A6EEE008677C7 /* h_0087.png */; };
 		DB150D03213A6EF3008677C7 /* h_0010.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CDA213A6EEE008677C7 /* h_0010.png */; };
@@ -86,7 +85,6 @@
 		A4E99B83DCD4328A19212AA9 /* Pods-MultiCollect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiCollect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiCollect/Pods-MultiCollect.debug.xcconfig"; sourceTree = "<group>"; };
 		DB00729C2123DCBF00A60A97 /* Bellerose.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bellerose.ttf; sourceTree = "<group>"; };
 		DB00729E2123FECF00A60A97 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
-		DB0072A02124256100A60A97 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_dhlc.png; sourceTree = "<group>"; };
 		DB150CD8213A6EEE008677C7 /* h_0028.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0028.png; sourceTree = "<group>"; };
 		DB150CD9213A6EEE008677C7 /* h_0087.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0087.png; sourceTree = "<group>"; };
 		DB150CDA213A6EEE008677C7 /* h_0010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0010.png; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 				DB150CEA213A6EF0008677C7 /* h_0089.png */,
 				DBCD26D421253385007BCFF2 /* award.png */,
 				DBCD26D321253385007BCFF2 /* btc_award.png */,
-				DB0072A02124256100A60A97 /* welcome_bg_dhlc.png */,
 				DB00729C2123DCBF00A60A97 /* Bellerose.ttf */,
 				DBDD3ECB2122C28E006F571D /* ok_1.png */,
 				DBDD3EC92122AFF5006F571D /* btc_icon.png */,
@@ -368,7 +365,6 @@
 				DB150D0E213A6EF3008677C7 /* h_0034.png in Resources */,
 				DB150D20213A6EF3008677C7 /* h_0027.png in Resources */,
 				DB150D0D213A6EF3008677C7 /* h_0012.png in Resources */,
-				DB0072A12124256100A60A97 /* welcome_bg_dhlc.png in Resources */,
 				DB150D11213A6EF3008677C7 /* h_0019.png in Resources */,
 				DB150D05213A6EF3008677C7 /* h_0023.png in Resources */,
 				DB150D1A213A6EF3008677C7 /* h_0055.png in Resources */,

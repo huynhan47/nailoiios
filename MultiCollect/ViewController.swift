@@ -254,12 +254,19 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             let cell:targetCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "targetCellUnit", for: indexPath) as! targetCellUnit
             //cell.backgroundColor = UIColor.red;
             cell.targetLabel.text = answerText[indexPath.row]
-            
             cell.contentView.layer.cornerRadius = 10.0
             cell.contentView.layer.borderWidth = 3.0
             cell.contentView.layer.borderColor = UIColor.white.cgColor
-            cell.contentView.backgroundColor = UIColor.red;
             cell.contentView.layer.masksToBounds = true
+            
+            if (cell.targetLabel.text != " ")
+            {
+                cell.contentView.backgroundColor = UIColor.blue;               
+            }
+            else
+            {
+                cell.contentView.backgroundColor = UIColor.black;
+            }
          
             return cell;
             
@@ -268,13 +275,19 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         {
             let cell:fromCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "fromCellUnit", for: indexPath) as! fromCellUnit
             cell.fromLabel.text = puzzText[indexPath.row]
-            
             cell.contentView.layer.cornerRadius = 10.0
             cell.contentView.layer.borderWidth = 3.0
             cell.contentView.layer.borderColor = UIColor.white.cgColor
-            cell.contentView.backgroundColor = UIColor.blue;
             cell.contentView.layer.masksToBounds = true
-   
+            if (cell.fromLabel.text != " ")
+            {
+                cell.contentView.backgroundColor = UIColor.blue;
+            }
+            else
+            {
+                cell.contentView.backgroundColor = UIColor.black;
+            }
+            
             return cell;
         }
     }
@@ -312,13 +325,21 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
                 validAnswer();
             }
             
+            //Change visible of selecting cell
+            let cell:fromCellUnit = collectionView.dequeueReusableCell(withReuseIdentifier: "fromCellUnit", for: indexPath) as! fromCellUnit
+            cell.fromLabel.text = puzzText[indexPath.row]
+            
+            cell.contentView.layer.cornerRadius = 10.0
+            cell.contentView.layer.borderWidth = 3.0
+            cell.contentView.layer.borderColor = UIColor.white.cgColor
+            cell.contentView.backgroundColor = UIColor.black;
+            cell.contentView.layer.masksToBounds = true
         }
         //let  height = collectionView.collectionViewLayout.collectionViewContentSize.height;
         //heightConst.constant = height
 
         target.reloadData();
         from.reloadData();
-        
      
         //self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), title: "Toast Title", image: UIImage(named: "clock.png")) { didTap in
         //    if didTap {
@@ -380,8 +401,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
         
     }
-    
-   
     
     func genRandomText(orgTextArray : [String], length : Int) -> [String]{
         let textRemain = length - orgTextArray.count;

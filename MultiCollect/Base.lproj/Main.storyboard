@@ -427,56 +427,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wB3-hF-99U">
-                                <rect key="frame" x="16" y="115.99999999999994" width="343" height="356.33333333333331"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wMc-tF-YQs">
+                                <rect key="frame" x="116" y="104" width="143" height="143"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wMc-tF-YQs" secondAttribute="height" multiplier="1:1" id="Zcw-PT-GXT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="center" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30V-Og-pUG">
+                                <rect key="frame" x="41" y="574" width="294" height="104"/>
+                                <state key="normal" image="play_retro_button.png"/>
+                                <connections>
+                                    <action selector="btnPlay:" destination="KsV-3y-dmb" eventType="touchUpInside" id="QGG-rE-syw"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="NDf-DV-SoR"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8Q-Ne-YF1">
+                                <rect key="frame" x="93.333333333333314" y="427.66666666666669" width="189" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDC-LK-B0F">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btc_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2Yr-hv-d1I">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Ge2-O6-pt7"/>
+                                            <constraint firstAttribute="height" constant="50" id="Zf0-kg-rp6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10 BitCoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxw-aO-Gje">
+                                        <rect key="frame" x="50.000000000000014" y="0.0" width="88.999999999999986" height="50"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ok_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wMc-tF-YQs">
-                                        <rect key="frame" x="0.0" y="20.333333333333314" width="343" height="256"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btc_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Us0-aK-rw4">
+                                        <rect key="frame" x="139" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="IG6-Ld-OjJ"/>
+                                            <constraint firstAttribute="height" constant="50" id="Qtx-FZ-HXF"/>
+                                        </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a8Q-Ne-YF1">
-                                        <rect key="frame" x="0.0" y="276.33333333333331" width="343" height="50"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="btc_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2Yr-hv-d1I">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Ge2-O6-pt7"/>
-                                                    <constraint firstAttribute="height" constant="50" id="Zf0-kg-rp6"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxw-aO-Gje">
-                                                <rect key="frame" x="50" y="0.0" width="243" height="50"/>
-                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="btc_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Us0-aK-rw4">
-                                                <rect key="frame" x="293" y="0.0" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="IG6-Ld-OjJ"/>
-                                                    <constraint firstAttribute="height" constant="50" id="Qtx-FZ-HXF"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30V-Og-pUG">
-                                        <rect key="frame" x="0.0" y="326.33333333333331" width="343" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDC-LK-B0F">
+                                <rect key="frame" x="129.33333333333334" y="297" width="116.66666666666666" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wB3-hF-99U" firstAttribute="leading" secondItem="ari-Nd-cQG" secondAttribute="leadingMargin" id="Lf9-9W-MJg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wB3-hF-99U" secondAttribute="trailing" id="ywM-Uo-tiK"/>
+                            <constraint firstItem="wMc-tF-YQs" firstAttribute="top" secondItem="3gW-GI-UOr" secondAttribute="bottom" constant="60" id="4F8-Se-e2U"/>
+                            <constraint firstItem="a8Q-Ne-YF1" firstAttribute="centerX" secondItem="ari-Nd-cQG" secondAttribute="centerX" id="687-Y1-HSv"/>
+                            <constraint firstItem="a8Q-Ne-YF1" firstAttribute="top" secondItem="NDC-LK-B0F" secondAttribute="bottom" constant="70" id="AuI-SG-ODA"/>
+                            <constraint firstItem="30V-Og-pUG" firstAttribute="centerX" secondItem="ari-Nd-cQG" secondAttribute="centerX" id="JVN-DS-zD8"/>
+                            <constraint firstItem="i1b-7G-Nut" firstAttribute="top" secondItem="30V-Og-pUG" secondAttribute="bottom" constant="100" id="bk3-bX-g3h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wMc-tF-YQs" secondAttribute="trailing" constant="100" id="cyk-bn-n7l"/>
+                            <constraint firstItem="NDC-LK-B0F" firstAttribute="top" secondItem="wMc-tF-YQs" secondAttribute="bottom" constant="50" id="daQ-09-0Td"/>
+                            <constraint firstItem="wMc-tF-YQs" firstAttribute="centerX" secondItem="ari-Nd-cQG" secondAttribute="centerX" id="ucO-eb-UPV"/>
+                            <constraint firstItem="NDC-LK-B0F" firstAttribute="centerX" secondItem="ari-Nd-cQG" secondAttribute="centerX" id="xR9-IA-MlS"/>
+                            <constraint firstItem="wMc-tF-YQs" firstAttribute="leading" secondItem="ari-Nd-cQG" secondAttribute="leadingMargin" constant="100" id="xwn-oT-Obo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="NDC-LK-B0F" id="AZ7-6j-k2I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tK2-ki-Zwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -500,4 +513,7 @@
         <image name="skip_icon.png" width="800" height="800"/>
         <image name="welcome_bg_dhlc.png" width="900" height="1600"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4aM-O0-fgX"/>
+    </inferredMetricsTieBreakers>
 </document>

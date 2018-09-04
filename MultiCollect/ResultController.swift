@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 class ResultController : UIViewController
 {
+    var answerString : String = " ";
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBAction func btnPlay(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        answerLabel.text = answerString;
     }
 }

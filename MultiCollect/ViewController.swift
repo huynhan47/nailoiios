@@ -319,7 +319,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.reloadData();
         from.reloadData();
         
-       ////performSegue(withIdentifier: "Bingo", sender: self)
+     
         //self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), title: "Toast Title", image: UIImage(named: "clock.png")) { didTap in
         //    if didTap {
         //        print("completion from tap")
@@ -372,6 +372,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             print("Bingo");
             finishList! += (",\"" + currentQuestionID! + "\"")
             defaults.set(finishList!, forKey: "finishList")
+            performSegue(withIdentifier: "Bingo", sender: self)
         }
         else
         {
@@ -442,6 +443,13 @@ extension ViewController: GADBannerViewDelegate {
         print("Fail to receive ads")
         print(error)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "Bingo") {
+            let vc = segue.destination as! ResultController
+            vc.answerString = "Your Data"
+        }
+    }
+    
 }
 
 extension String {

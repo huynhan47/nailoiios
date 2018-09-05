@@ -48,6 +48,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     let defaults = UserDefaults.standard;
     var OrgPuzzleString = "";
     var currentQuestionID : String?;
+    var totalQuestionCount :String? = " ";
     
     
     //Ad
@@ -208,14 +209,19 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             puzzText =  shuffle(array:  genRandomText(orgTextArray: orgPuzzleArray, length: 16))
             
         }
-        print("imgQuestionName ne :"  +  imgQuestionName);
-        imgQuestion.image = UIImage(named: imgQuestionName);
+        print("imgQuestionName ne :"  +  imgQuestionName)
+        imgQuestion.image = UIImage(named: imgQuestionName)
+        
+        
+        let sql_count = "SELECT count(*) FROM LAICHU"
+        print("sql ne: " + sql)
+        for row in try! db!.prepare(sql_count)
+        {
+             print("total ne 1: \(row[0]!)")
+             totalQuestionCount = (row[0]) as? String
+        }
         
         //User Default - Start
-        
-        
-       
-        
     }
     override func viewWillAppear(_ animated: Bool) {
     

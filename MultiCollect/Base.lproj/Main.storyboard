@@ -167,6 +167,10 @@
                             <constraint firstItem="oeM-O8-tlr" firstAttribute="top" secondItem="0nB-F0-KY3" secondAttribute="bottom" id="xMB-qb-ywQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblBitCoin" destination="gdJ-ye-gH1" id="iI2-sE-egp"/>
+                        <outlet property="lblScore" destination="N4k-Z7-gHl" id="BOk-2y-KzJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WvZ-Wa-pMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

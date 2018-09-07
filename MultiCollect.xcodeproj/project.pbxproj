@@ -67,6 +67,12 @@
 		DB7ABA192128133200DA6696 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7ABA182128133100DA6696 /* btn_back.png */; };
 		DB7ABA1C212813EF00DA6696 /* share_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7ABA1A212813EC00DA6696 /* share_logo.png */; };
 		DB7ABA1D212813EF00DA6696 /* skip_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7ABA1B212813EE00DA6696 /* skip_icon.png */; };
+		DB957D5D21427675005CE8BC /* ok_4.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D572142766E005CE8BC /* ok_4.png */; };
+		DB957D5E21427675005CE8BC /* ok_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5821427670005CE8BC /* ok_7.png */; };
+		DB957D5F21427675005CE8BC /* ok_5.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5921427671005CE8BC /* ok_5.png */; };
+		DB957D6021427675005CE8BC /* ok_2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5A21427672005CE8BC /* ok_2.png */; };
+		DB957D6121427675005CE8BC /* ok_6.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5B21427673005CE8BC /* ok_6.png */; };
+		DB957D6221427675005CE8BC /* ok_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5C21427674005CE8BC /* ok_3.png */; };
 		DBCD26D521253386007BCFF2 /* btc_award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D321253385007BCFF2 /* btc_award.png */; };
 		DBCD26D621253386007BCFF2 /* award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D421253385007BCFF2 /* award.png */; };
 		DBCD26DA21255730007BCFF2 /* play_retro_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D92125572F007BCFF2 /* play_retro_button.png */; };
@@ -144,6 +150,12 @@
 		DB7ABA182128133100DA6696 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
 		DB7ABA1A212813EC00DA6696 /* share_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_logo.png; sourceTree = "<group>"; };
 		DB7ABA1B212813EE00DA6696 /* skip_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip_icon.png; sourceTree = "<group>"; };
+		DB957D572142766E005CE8BC /* ok_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_4.png; sourceTree = "<group>"; };
+		DB957D5821427670005CE8BC /* ok_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_7.png; sourceTree = "<group>"; };
+		DB957D5921427671005CE8BC /* ok_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_5.png; sourceTree = "<group>"; };
+		DB957D5A21427672005CE8BC /* ok_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_2.png; sourceTree = "<group>"; };
+		DB957D5B21427673005CE8BC /* ok_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_6.png; sourceTree = "<group>"; };
+		DB957D5C21427674005CE8BC /* ok_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_3.png; sourceTree = "<group>"; };
 		DBCD26D321253385007BCFF2 /* btc_award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btc_award.png; sourceTree = "<group>"; };
 		DBCD26D421253385007BCFF2 /* award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = award.png; sourceTree = "<group>"; };
 		DBCD26D92125572F007BCFF2 /* play_retro_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_retro_button.png; sourceTree = "<group>"; };
@@ -206,6 +218,12 @@
 		DB23805920F347720072C98B /* MultiCollect */ = {
 			isa = PBXGroup;
 			children = (
+				DB957D5A21427672005CE8BC /* ok_2.png */,
+				DB957D5C21427674005CE8BC /* ok_3.png */,
+				DB957D572142766E005CE8BC /* ok_4.png */,
+				DB957D5921427671005CE8BC /* ok_5.png */,
+				DB957D5B21427673005CE8BC /* ok_6.png */,
+				DB957D5821427670005CE8BC /* ok_7.png */,
 				DB7ABA1A212813EC00DA6696 /* share_logo.png */,
 				DB7ABA1B212813EE00DA6696 /* skip_icon.png */,
 				DB7ABA182128133100DA6696 /* btn_back.png */,
@@ -350,6 +368,7 @@
 				DB00729D2123DCBF00A60A97 /* Bellerose.ttf in Resources */,
 				DB150D0A213A6EF3008677C7 /* h_0061.png in Resources */,
 				DB150D06213A6EF3008677C7 /* h_0029.png in Resources */,
+				DB957D6121427675005CE8BC /* ok_6.png in Resources */,
 				DBCD26DF21255EE7007BCFF2 /* clock.png in Resources */,
 				DB150D24213A6EF3008677C7 /* h_0045.png in Resources */,
 				DB150D12213A6EF3008677C7 /* h_0071.png in Resources */,
@@ -373,6 +392,7 @@
 				DB23806520F347750072C98B /* LaunchScreen.storyboard in Resources */,
 				DB150D1B213A6EF3008677C7 /* h_0017.png in Resources */,
 				DB150D27213A6EF3008677C7 /* h_0051.png in Resources */,
+				DB957D6021427675005CE8BC /* ok_2.png in Resources */,
 				DB150D07213A6EF3008677C7 /* h_0031.png in Resources */,
 				DBCD26DC212559F3007BCFF2 /* welcome_bg_dhlc.png in Resources */,
 				DB150D10213A6EF3008677C7 /* h_0072.png in Resources */,
@@ -380,6 +400,7 @@
 				DB150D0C213A6EF3008677C7 /* h_0073.png in Resources */,
 				DB150D26213A6EF3008677C7 /* h_0088.png in Resources */,
 				DB2F1AC0211547800001B447 /* laichu1.sqlite in Resources */,
+				DB957D5D21427675005CE8BC /* ok_4.png in Resources */,
 				DB150D08213A6EF3008677C7 /* h_0037.png in Resources */,
 				DBCD26E221256068007BCFF2 /* bitcoin_earn_logo.png in Resources */,
 				DB150D17213A6EF3008677C7 /* h_0016.png in Resources */,
@@ -398,8 +419,11 @@
 				DB150D1D213A6EF3008677C7 /* h_0033.png in Resources */,
 				DB150D21213A6EF3008677C7 /* h_0024.png in Resources */,
 				DB23806020F347720072C98B /* Main.storyboard in Resources */,
+				DB957D5F21427675005CE8BC /* ok_5.png in Resources */,
+				DB957D6221427675005CE8BC /* ok_3.png in Resources */,
 				DB7ABA1D212813EF00DA6696 /* skip_icon.png in Resources */,
 				DB150D15213A6EF3008677C7 /* h_0064.png in Resources */,
+				DB957D5E21427675005CE8BC /* ok_7.png in Resources */,
 				DB150D02213A6EF3008677C7 /* h_0087.png in Resources */,
 				DB150D16213A6EF3008677C7 /* h_0015.png in Resources */,
 				DB150D25213A6EF3008677C7 /* h_0007.png in Resources */,

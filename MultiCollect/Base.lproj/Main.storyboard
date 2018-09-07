@@ -46,7 +46,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="btc_award" translatesAutoresizingMaskIntoConstraints="NO" id="h73-gJ-okQ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="btc_award.png" translatesAutoresizingMaskIntoConstraints="NO" id="h73-gJ-okQ">
                                         <rect key="frame" x="125.33333333333334" y="0.0" width="48" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="P4C-pI-jl9"/>
@@ -409,10 +409,12 @@
                     </view>
                     <connections>
                         <outlet property="Banner" destination="70n-Q8-mB3" id="CsO-pU-53L"/>
+                        <outlet property="btnBitScore" destination="Q5v-em-ry8" id="hKO-6i-ytu"/>
                         <outlet property="from" destination="kYr-Xy-KVy" id="luQ-F0-PyW"/>
                         <outlet property="heightConst" destination="FHg-ma-yCk" id="cd0-z5-tm7"/>
                         <outlet property="heightConstFrom" destination="xFe-CO-tN1" id="Oin-Ex-p6u"/>
                         <outlet property="imgQuestion" destination="0Rg-hq-nKS" id="CIJ-et-Mui"/>
+                        <outlet property="lblProgress" destination="lei-yi-WO1" id="Meg-BS-ytf"/>
                         <outlet property="target" destination="PEy-OZ-XEA" id="TbM-I8-ldy"/>
                         <segue destination="KsV-3y-dmb" kind="show" identifier="Bingo" id="UaC-Ua-qLT"/>
                     </connections>
@@ -494,6 +496,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="QuynhAkaImg" destination="wMc-tF-YQs" id="ywE-pK-Y55"/>
                         <outlet property="answerLabel" destination="NDC-LK-B0F" id="AZ7-6j-k2I"/>
                     </connections>
                 </viewController>
@@ -506,7 +509,7 @@
         <image name="award.png" width="512" height="512"/>
         <image name="bitcoin_earn_logo.png" width="618" height="542"/>
         <image name="bitscore" width="603" height="261"/>
-        <image name="btc_award" width="512" height="512"/>
+        <image name="btc_award.png" width="512" height="512"/>
         <image name="btc_icon" width="100" height="100"/>
         <image name="btn_back.png" width="545" height="236"/>
         <image name="clock.png" width="256" height="256"/>

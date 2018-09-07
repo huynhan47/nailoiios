@@ -19,6 +19,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var from: UICollectionView!
   
  
+    @IBOutlet weak var lblProgress: UILabel!
     @IBOutlet weak var heightConst: NSLayoutConstraint!
     @IBOutlet weak var heightConstFrom: NSLayoutConstraint!
    
@@ -28,7 +29,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
     @IBOutlet weak var imgQuestion: UIImageView!
     
-    @IBOutlet weak var lblBitscore: UILabel!
+    @IBOutlet weak var btnBitScore: UIButton!
     var puzzText = ["L","A","I","C","H","U","2","0","1","8","S","T","U","D","I","O"]
     //var orgPuzzText = ["L","A","I","C","H","U"]
     var answerText   = [" ", " ", " "," "," "," "," "," "] as Array
@@ -48,8 +49,9 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     let defaults = UserDefaults.standard;
     var OrgPuzzleString = "";
     var currentQuestionID : String?;
-    var totalQuestionCount :String? = " ";
-    
+    var totalQuestionCount :Int64 = 0;
+    var BitCoin : Int = 100
+    var finishCount : Int = 0;
     
     //Ad
     lazy var adBannerView: GADBannerView = {
@@ -185,6 +187,14 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         //}
         print(finishList!)
         
+        
+        BitCoin =  defaults.integer(forKey: "BitCoin");
+        if (BitCoin == 0)
+        {
+            BitCoin = 100;
+        }
+        print(BitCoin)
+        btnBitScore.setTitle(String(BitCoin), for: .normal)
         //User Default - End
         
         let sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
@@ -218,9 +228,11 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         for row in try! db!.prepare(sql_count)
         {
              print("total ne 1: \(row[0]!)")
-             totalQuestionCount = (row[0]) as? String
+             totalQuestionCount = row[0]! as! Int64
         }
         
+        finishCount = finishList!.split(separator: ",").count;
+        lblProgress.text = String(finishCount - 1) + "/" + String(totalQuestionCount);
         //User Default - Start
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -398,7 +410,11 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         {
             print("Bingo");
             finishList! += (",\"" + currentQuestionID! + "\"")
+            BitCoin += 10
+            
             defaults.set(finishList!, forKey: "finishList")
+            defaults.set(BitCoin, forKey: "BitCoin")
+            
             performSegue(withIdentifier: "Bingo", sender: self)
         }
         else

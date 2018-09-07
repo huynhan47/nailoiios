@@ -17,8 +17,9 @@ class WelcomeController : UIViewController
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var lblBitCoin: UILabel!
     let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
-    var totalQuestionCount :String = " ";
-    
+    var totalQuestionCount :String = " "
+    var finishList : String? = "\"0000\""
+    var finishCount : Int? = 0 ;
     override func viewDidLoad() {
         score =  defaults.string(forKey: "score");
         if (score == nil)
@@ -26,13 +27,21 @@ class WelcomeController : UIViewController
             score = "100";
         }
         print(score!)
-        super.viewDidLoad();
         lblBitCoin.text = score;
         
+        finishList =  defaults.string(forKey: "finishList");
+        if (finishList == nil)
+        {
+            finishList = "\"0000\"";
+        }
+        print(finishList!)
+        
+        
+        super.viewDidLoad();
+       
+        
         var db = try? Connection();
-        let laichus = Table("laichu");
-        let id = Expression<String?>("id")
-        let letters = Expression<String?>("letters")
+       
         do{
             db = try Connection(path!)
         }
@@ -47,7 +56,8 @@ class WelcomeController : UIViewController
             totalQuestionCount = String(row[0]! as! Int64)
              print("total ne 1: \(row[0]!)" + totalQuestionCount)
         }
-        lblScore.text = totalQuestionCount;
+        finishCount = finishList?.split(separator: ",").count ;
+        lblScore.text = String(finishCount! - 1) + "/" + totalQuestionCount;
         print("total ne 1:" +  lblScore.text! )
         
     }

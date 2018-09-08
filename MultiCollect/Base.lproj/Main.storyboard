@@ -364,6 +364,9 @@
                                                     <constraint firstAttribute="width" constant="48" id="Ywd-UY-3Vt"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="skip_icon.png"/>
+                                                <connections>
+                                                    <action selector="btnSkip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pW6-gj-G2S"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-cN-xCq">
                                                 <rect key="frame" x="0.0" y="48.000000000000057" width="48" height="32"/>

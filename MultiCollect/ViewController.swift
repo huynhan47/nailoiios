@@ -23,6 +23,11 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var heightConst: NSLayoutConstraint!
     @IBOutlet weak var heightConstFrom: NSLayoutConstraint!
    
+    @IBAction func btnSkip(_ sender: Any) {
+        finishList! += (",\"" + currentQuestionID! + "\"")
+        defaults.set(finishList!, forKey: "finishList")
+        self.viewDidLoad();
+    }
     @IBAction func Bingo(_ sender: Any) {
         performSegue(withIdentifier: "Bingo", sender: self)
     }
@@ -359,13 +364,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.reloadData();
         from.reloadData();
      
-        //self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), title: "Toast Title", image: UIImage(named: "clock.png")) { didTap in
-        //    if didTap {
-        //        print("completion from tap")
-        //    } else {
-        //        print("completion without tap")
-        //    }
-      //  }
+    
         
         ///self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), ///title: "Toast Title", image: captureScreen()) { didTap in
          ///   if didTap {
@@ -384,7 +383,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
 
         //print("size");
         //print(size)
@@ -420,8 +418,30 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         else
         {
             print("Wrong");
+            
+            var QuynhAkaArray : [String] = ["e_1","e_2","e_3","e_4","e_5","e_6","e_7","e_8"]
+            var MessageArray : [String] = [
+                "Sai Rồi Bạn Ơi Thử Lại Nhé",
+                "Sai Rồi! Thử Hỏi Bạn Bè Xem Sao! Nút Share Bên Dưới",
+                "e_3",
+                "e_4",
+                "e_5",
+                "e_6",
+                "e_7",
+                "e_8"]
+  
+            let indexImage = Int(arc4random_uniform(6));
+            let indexMessage = Int(arc4random_uniform(6));
+            //QuynhAkaImg.image = UIImage (named :QuynhAkaArray[index])
+            
+            self.view.makeToast(MessageArray[indexMessage], duration: 2.0, point: CGPoint(x: self.view.frame.width/2  , y: self.view.frame.height/2), title: "Toast Title", image:  UIImage (named :QuynhAkaArray[indexImage])) { didTap in
+                if didTap {
+                    print("completion from tap")
+                } else {
+                    print("completion without tap")
+                }
+              }
         }
-        
     }
     
     func genRandomText(orgTextArray : [String], length : Int) -> [String]{

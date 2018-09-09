@@ -161,6 +161,9 @@
 		DB382DF92143712300EC2A18 /* e_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e_6.png; sourceTree = "<group>"; };
 		DB382DFA2143712300EC2A18 /* e_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e_4.png; sourceTree = "<group>"; };
 		DB382DFB2143712400EC2A18 /* e_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e_1.png; sourceTree = "<group>"; };
+		DB382E072143BB4700EC2A18 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_dhlc.png; sourceTree = "<group>"; };
+		DB382E082143BB5000EC2A18 /* h_0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0033.png; sourceTree = "<group>"; };
+		DB382E0A2143BB5A00EC2A18 /* h_0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = h_0033.png; path = ../../../../main/assets/Pics/h_0033.png; sourceTree = "<group>"; };
 		DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fromCellUnit.swift; sourceTree = "<group>"; };
 		DB7ABA16212802AA00DA6696 /* btn_back_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back_left.png; sourceTree = "<group>"; };
 		DB7ABA182128133100DA6696 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
@@ -234,6 +237,33 @@
 		DB23805920F347720072C98B /* MultiCollect */ = {
 			isa = PBXGroup;
 			children = (
+				DB382E062143BB2B00EC2A18 /* Image */,
+				DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */,
+				DB150CF4213A6EF1008677C7 /* h_0033.png */,
+				DBDD3EC721228E8E006F571D /* ResultController.swift */,
+				DB2F1ABF211547800001B447 /* laichu1.sqlite */,
+				DB00729C2123DCBF00A60A97 /* Bellerose.ttf */,
+				DB23805A20F347720072C98B /* AppDelegate.swift */,
+				DB23805C20F347720072C98B /* ViewController.swift */,
+				DB23805E20F347720072C98B /* Main.storyboard */,
+				DB00729E2123FECF00A60A97 /* WelcomeController.swift */,
+				DB23806C20F348320072C98B /* targetCellUnit.swift */,
+				DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */,
+				DB2F1AC7211C2EFB0001B447 /* h_0033.png */,
+				DB23806120F347750072C98B /* Assets.xcassets */,
+				DB2F1AC3211AE41E0001B447 /* bitscore.png */,
+				DB2F1AC12118393F0001B447 /* M1.jpg */,
+				DB2F1AC5211C2EB30001B447 /* framepng.png */,
+				DB23806320F347750072C98B /* LaunchScreen.storyboard */,
+				DB23806620F347750072C98B /* Info.plist */,
+			);
+			path = MultiCollect;
+			sourceTree = "<group>";
+		};
+		DB382E062143BB2B00EC2A18 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DB382E0A2143BB5A00EC2A18 /* h_0033.png */,
 				DB957D5A21427672005CE8BC /* ok_2.png */,
 				DB957D5C21427674005CE8BC /* ok_3.png */,
 				DB957D572142766E005CE8BC /* ok_4.png */,
@@ -247,7 +277,7 @@
 				DBCD26E121256067007BCFF2 /* bitcoin_earn_logo.png */,
 				DBCD26DD21255EE5007BCFF2 /* clock.png */,
 				DBCD26DE21255EE6007BCFF2 /* shareapp_icon.png */,
-				DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */,
+				DB382E072143BB4700EC2A18 /* welcome_bg_dhlc.png */,
 				DBCD26D92125572F007BCFF2 /* play_retro_button.png */,
 				DB382DFB2143712400EC2A18 /* e_1.png */,
 				DB382DF72143712300EC2A18 /* e_2.png */,
@@ -277,7 +307,7 @@
 				DB150CEB213A6EF0008677C7 /* h_0030.png */,
 				DB150CDE213A6EEE008677C7 /* h_0031.png */,
 				DB150CEF213A6EF0008677C7 /* h_0032.png */,
-				DB150CF4213A6EF1008677C7 /* h_0033.png */,
+				DB382E082143BB5000EC2A18 /* h_0033.png */,
 				DB150CE5213A6EEF008677C7 /* h_0034.png */,
 				DB150CDF213A6EEF008677C7 /* h_0037.png */,
 				DB150CF0213A6EF1008677C7 /* h_0044.png */,
@@ -300,26 +330,10 @@
 				DB150CEA213A6EF0008677C7 /* h_0089.png */,
 				DBCD26D421253385007BCFF2 /* award.png */,
 				DBCD26D321253385007BCFF2 /* btc_award.png */,
-				DB00729C2123DCBF00A60A97 /* Bellerose.ttf */,
 				DBDD3ECB2122C28E006F571D /* ok_1.png */,
 				DBDD3EC92122AFF5006F571D /* btc_icon.png */,
-				DBDD3EC721228E8E006F571D /* ResultController.swift */,
-				DB2F1ABF211547800001B447 /* laichu1.sqlite */,
-				DB23805A20F347720072C98B /* AppDelegate.swift */,
-				DB23805C20F347720072C98B /* ViewController.swift */,
-				DB23805E20F347720072C98B /* Main.storyboard */,
-				DB00729E2123FECF00A60A97 /* WelcomeController.swift */,
-				DB23806C20F348320072C98B /* targetCellUnit.swift */,
-				DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */,
-				DB2F1AC7211C2EFB0001B447 /* h_0033.png */,
-				DB23806120F347750072C98B /* Assets.xcassets */,
-				DB2F1AC3211AE41E0001B447 /* bitscore.png */,
-				DB2F1AC12118393F0001B447 /* M1.jpg */,
-				DB2F1AC5211C2EB30001B447 /* framepng.png */,
-				DB23806320F347750072C98B /* LaunchScreen.storyboard */,
-				DB23806620F347750072C98B /* Info.plist */,
 			);
-			path = MultiCollect;
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

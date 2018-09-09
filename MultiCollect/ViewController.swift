@@ -24,8 +24,45 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var heightConstFrom: NSLayoutConstraint!
    
     @IBAction func btnSkip(_ sender: Any) {
-        finishList! += (",\"" + currentQuestionID! + "\"")
-        defaults.set(finishList!, forKey: "finishList")
+        
+      
+        //Add imageview to alert
+        let imgViewTitle = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+      
+        
+        //alert.addAction(action)
+        //self.present(alert, animated: true, completion: nil)
+        
+        let dialogMessage = UIAlertController(title: "Tạm Bỏ Qua", message: "Dùng 50 BitCoin Để Tạm Bỏ Qua", preferredStyle: .alert)
+        imgViewTitle.image = UIImage(named:"e_1")
+        dialogMessage.view.addSubview(imgViewTitle)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            self.skipQuestion()
+        })
+        
+        // Create Cancel button with action handlder
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            print("Cancel button tapped")
+        }
+        
+        //Add OK and Cancel button to dialog message
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        
+        // Present dialog message to user
+        self.present(dialogMessage, animated: true, completion: nil)
+    
+    }
+    
+    func skipQuestion()
+    {
+        
+        skipList! += (",\"" + currentQuestionID! + "\"")
+        print(skipList!)
+        defaults.set(skipList!, forKey: "skipList")
         self.viewDidLoad();
     }
     @IBAction func Bingo(_ sender: Any) {
@@ -51,12 +88,14 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
     var imgQuestionName :String = "h_0007";
     var finishList :String? = "\"0000\"";
+    var skipList :String? = "\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"";
     let defaults = UserDefaults.standard;
     var OrgPuzzleString = "";
     var currentQuestionID : String?;
     var totalQuestionCount :Int64 = 0;
     var BitCoin : Int = 100
     var finishCount : Int = 0;
+    var skipQuestionListFlag : Bool = true;
     
     //Ad
     lazy var adBannerView: GADBannerView = {
@@ -82,7 +121,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ///defaults.set("\"0000\",\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"", forKey: "skipList")
         print(shuffle(array: puzzText))
         from.delegate = self;
         from.dataSource = self;
@@ -184,6 +223,13 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
         print(finishList!)
         
+       skipList =  defaults.string(forKey: "skipList");
+        if (skipList == nil)
+        {
+            skipList = "\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"";
+        }
+        print(skipList!)
+        
         //defaults.set("\"0003\"", forKey: "finishList")
         //finishList =  defaults.string(forKey: "finishList");
         //if (finishList == nil)
@@ -200,14 +246,40 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
         print(BitCoin)
         btnBitScore.setTitle(String(BitCoin), for: .normal)
-        //User Default - End
+        //User Default - Start
         
-        let sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
+        ///let sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
+        var sql = "SELECT * FROM LAICHU WHERE ID   IN (\"1111\") ORDER BY ID ASC LIMIT 1 "
         print("sql ne: " + sql)
-        for row in try! db!.prepare(sql)
+        
+        var rows = try! db!.prepare(sql)
+        for _ in rows
+        {
+            skipQuestionListFlag = false
+        }
+        if (skipQuestionListFlag == true)
+        {
+
+             sql = "SELECT * FROM LAICHU WHERE ID  IN ("  + skipList! + ") ORDER BY "
+             print("sql ne 2: " + sql)
+            var orderBy = "CASE id ";
+            var skipArray = skipList!.split(separator: ",")
+            for  index in  1 ... (skipArray.count - 1 ) {
+                orderBy.append(" WHEN " + String(skipArray[index]) + " THEN " + String(index) );
+            }
+            
+            orderBy.append(" END LIMIT 1");
+            sql.append(orderBy);
+            print(sql)
+            rows = try! db!.prepare(sql)
+        }
+        
+        for row in rows
         {
             print("id ne 1: \(row[1]!)")
             currentQuestionID =  (row[0]) as? String
+            skipList = skipList!.replacingOccurrences(of: ",\"" + currentQuestionID! + "\"", with: "")
+            print("skipListAfter replace" + skipList!)
             imgQuestionName =  "h_" + currentQuestionID!
             OrgPuzzleString = row[2] as! String
             answerText = Array<String>(repeating: " ", count: OrgPuzzleString.split(separator: "_").count)
@@ -224,6 +296,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             puzzText =  shuffle(array:  genRandomText(orgTextArray: orgPuzzleArray, length: 16))
             
         }
+
         print("imgQuestionName ne :"  +  imgQuestionName)
         imgQuestion.image = UIImage(named: imgQuestionName)
         
@@ -238,7 +311,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         finishCount = finishList!.split(separator: ",").count;
         lblProgress.text = String(finishCount - 1) + "/" + String(totalQuestionCount);
-        //User Default - Start
+        //User Default - End
     }
     override func viewWillAppear(_ animated: Bool) {
     
@@ -418,7 +491,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         else
         {
             print("Wrong");
-            
+           
             var QuynhAkaArray : [String] = ["e_1","e_2","e_3","e_4","e_5","e_6","e_7","e_8"]
             var MessageArray : [String] = [
                 "Sai Rồi Bạn Ơi Thử Lại Nhé",

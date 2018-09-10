@@ -98,15 +98,15 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var skipQuestionListFlag : Bool = true;
     
     //Ad
-    lazy var adBannerView: GADBannerView = {
-        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        adBannerView.delegate = self
-        adBannerView.rootViewController = self
-        
-        return adBannerView
-    }()
-    
+//    lazy var adBannerView: GADBannerView = {
+//        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+//        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        adBannerView.delegate = self
+//        adBannerView.rootViewController = self
+//
+//        return adBannerView
+//    }()
+//
     
     @IBAction func LetShare(_ sender: Any) {
         let activityVC = UIActivityViewController(activityItems: ["String to share"],applicationActivities: nil)
@@ -129,7 +129,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.delegate = self;
         target.dataSource = self;
         // Do any additional setup after loading the view, typically from a nib.
-        
         
         // make UI
         //From UI
@@ -157,7 +156,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             (spacing * CGFloat(numberOfItemsPerRowTarget - 1))
         size = Int((max - totalSpaceTarget) / CGFloat(numberOfItemsPerRowTarget))
         
-        heightConst.constant = CGFloat(size) + 10
+        ///heightConst.constant = CGFloat(size) + 10 // Cancel. It will set after get answer count
         target.contentInset.top = 0;
         target.reloadData();
         
@@ -249,7 +248,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         //User Default - Start
         
         ///let sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
-        var sql = "SELECT * FROM LAICHU WHERE ID   IN (\"1111\") ORDER BY ID ASC LIMIT 1 "
+        var sql = "SELECT * FROM LAICHU WHERE ID   IN (\"0009\") ORDER BY ID ASC LIMIT 1 "
         print("sql ne: " + sql)
         
         var rows = try! db!.prepare(sql)
@@ -260,8 +259,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         if (skipQuestionListFlag == true)
         {
 
-             sql = "SELECT * FROM LAICHU WHERE ID  IN ("  + skipList! + ") ORDER BY "
-             print("sql ne 2: " + sql)
+            sql = "SELECT * FROM LAICHU WHERE ID  IN ("  + skipList! + ") ORDER BY "
+            print("sql ne 2: " + sql)
             var orderBy = "CASE id ";
             var skipArray = skipList!.split(separator: ",")
             for  index in  1 ... (skipArray.count - 1 ) {
@@ -284,6 +283,15 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             OrgPuzzleString = row[2] as! String
             answerText = Array<String>(repeating: " ", count: OrgPuzzleString.split(separator: "_").count)
             totalIndex = answerText.count;
+            
+            if(totalIndex <= 8)
+            {
+                heightConst.constant = CGFloat(size) + 10
+            }
+            else{
+                heightConst.constant = CGFloat(size)*2 + 10
+            }
+            
             let orgPuzzle = OrgPuzzleString.split(separator: "_")
             var orgPuzzleArray : [String] = []
             for i in 0 ..< orgPuzzle.count
@@ -398,25 +406,33 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
          if collectionView == self.target
          {
+            if(answerText[indexPath.row] == " ") // Check if blank cell press
+            {
+                return;
+            }
             print(indexPath.row)
-            currentIndex?-=1;
+            //currentIndex?-=1;
             puzzText[Int(mappingText[indexPath.row])] =  answerText[indexPath.row]; // revert puzzle text
     
             answerText[indexPath.row] = " "; //delete answer text
+            currentIndex = answerText.index(of: " ") //Find the first blank to identify the current cell to process
         }
          else if collectionView == self.from
          {
-           
+            if (puzzText[indexPath.row] == " ") // Check if blank cell press
+            {
+                return;
+            }
             answerText[currentIndex!] = puzzText[indexPath.row] // display answer text
             mappingText[currentIndex!] = indexPath.row; //track the index of answer texr
             puzzText[indexPath.row] = " "; // delete the puzzle text
             print(answerText[currentIndex!])
-            currentIndex?+=1;
+            currentIndex = answerText.index(of: " ") //Find the first blank to identify the current cell to process
+            //currentIndex?+=1;
             
-            if(currentIndex == totalIndex)
+            if(currentIndex == nil)
             {
                 validAnswer();
             }
@@ -548,16 +564,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         return returnArray;
     }
     
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return adBannerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return adBannerView.frame.height
-    }
 }
 
 extension ViewController: GADBannerViewDelegate {

@@ -16,11 +16,13 @@ class ResultController : UIViewController
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var QuynhAkaImg: UIImageView!
     @IBOutlet weak var adBanner: GADBannerView!
+    var inter: GADInterstitial?
     @IBAction func btnPlay(_ sender: Any) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ///inter!.present(fromRootViewController: self)
         answerLabel.text = answerString;
         let index = Int(arc4random_uniform(6));
         QuynhAkaImg.image = UIImage (named :QuynhAkaArray[index])

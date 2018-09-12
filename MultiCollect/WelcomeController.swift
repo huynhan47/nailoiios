@@ -16,6 +16,34 @@ class WelcomeController : UIViewController
     var score : String? = " ";
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var lblBitCoin: UILabel!
+    
+    
+    @IBAction func ResetGame(_ sender: Any) {
+        self.defaults.set("\"0000\"", forKey: "finishList")
+        defaults.set("\"0000\"", forKey: "skipList")
+    }
+    
+    @IBAction func ShareGame(_ sender: Any) {
+        
+        let myWebsite = NSURL(string:"http://www.google.com/")
+        let img: UIImage = UIImage(named: "ok_1.png")!
+        
+        guard let url = myWebsite else {
+            print("nothing found")
+            return
+        }
+        
+        let shareItems:Array = [url,img]
+        
+        let activityVC = UIActivityViewController(activityItems: shareItems,applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
+        
+        if let popOver = activityVC.popoverPresentationController {
+            popOver.sourceView = self.view
+            //popOver.sourceRect =
+            //popOver.barButtonItem
+        }
+    }
     let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
     var totalQuestionCount :String = " "
     var finishList : String? = "\"0000\""

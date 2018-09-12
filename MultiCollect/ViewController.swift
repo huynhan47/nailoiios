@@ -23,8 +23,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var heightConst: NSLayoutConstraint!
     @IBOutlet weak var heightConstFrom: NSLayoutConstraint!
    
-    @IBAction func btnSkip(_ sender: Any) {
-        
+    @IBAction func btnSkip(_ sender: Any)
+    {
       
         //Add imageview to alert
         let imgViewTitle = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
@@ -54,12 +54,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         // Present dialog message to user
         self.present(dialogMessage, animated: true, completion: nil)
-    
     }
     
     func skipQuestion()
     {
-        
         skipList! += (",\"" + currentQuestionID! + "\"")
         print(skipList!)
         defaults.set(skipList!, forKey: "skipList")
@@ -96,7 +94,23 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var BitCoin : Int = 100
     var finishCount : Int = 0;
     var skipQuestionListFlag : Bool = true;
+    var interstitial: GADInterstitial?
     
+    private func createAndLoadInterstitial() -> GADInterstitial? {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712")
+        
+        guard let interstitial = interstitial else {
+            return nil
+        }
+        
+        let request = GADRequest()
+        // Remove the following line before you upload the app
+        request.testDevices = [ kGADSimulatorID ]
+        interstitial.load(request)
+        interstitial.delegate = self
+        
+        return interstitial
+    }
     //Ad
 //    lazy var adBannerView: GADBannerView = {
 //        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
@@ -121,6 +135,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interstitial = createAndLoadInterstitial()
         ///defaults.set("\"0000\",\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"", forKey: "skipList")
         print(shuffle(array: puzzText))
         from.delegate = self;
@@ -247,8 +262,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         btnBitScore.setTitle(String(BitCoin), for: .normal)
         //User Default - Start
         
-        ///let sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
-        var sql = "SELECT * FROM LAICHU WHERE ID   IN (\"0009\") ORDER BY ID ASC LIMIT 1 "
+        var sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
+        ///var sql = "SELECT * FROM LAICHU WHERE ID   IN (\"0009\") ORDER BY ID ASC LIMIT 1 "
         print("sql ne: " + sql)
         
         var rows = try! db!.prepare(sql)
@@ -432,7 +447,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             currentIndex = answerText.index(of: " ") //Find the first blank to identify the current cell to process
             //currentIndex?+=1;
             
-            if(currentIndex == nil)
+            if(currentIndex == nil) //When all blank cell are filled, check the answer
             {
                 validAnswer();
             }
@@ -453,8 +468,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.reloadData();
         from.reloadData();
      
-    
-        
         ///self.view.makeToast("This is a piece of toast", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), ///title: "Toast Title", image: captureScreen()) { didTap in
          ///   if didTap {
          ///       print("completion from tap")
@@ -468,7 +481,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
        /// present(activityVC, animated: true, completion: nil)
        /// if let popOver = activityVC.popoverPresentationController {
         ///    popOver.sourceView = self.view
-        ///..}
+        ///}
             
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -502,7 +515,9 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             defaults.set(finishList!, forKey: "finishList")
             defaults.set(BitCoin, forKey: "BitCoin")
             
-            performSegue(withIdentifier: "Bingo", sender: self)
+            //Load Ad
+            ///performSegue(withIdentifier: "Bingo", sender: self)
+            interstitial?.present(fromRootViewController: self)
         }
         else
         {
@@ -539,10 +554,13 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         let abcString : String = "ABCDEFGHIKLMNOPQRSTUVXY";
        
         ///let abcArray : [Character] = Array(abcString)
-        for _ in 1...textRemain
-        {
-            let offset = Int(arc4random_uniform(23));
-            resultArray.append(abcString.subString(from : offset, to: (offset)));
+        if (textRemain > 0)
+        {        
+            for _ in 1...textRemain
+            {
+                let offset = Int(arc4random_uniform(23));
+                resultArray.append(abcString.subString(from : offset, to: (offset)));
+            }
         }
         return resultArray
     }
@@ -586,12 +604,26 @@ extension ViewController: GADBannerViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "Bingo") {
             let vc = segue.destination as! ResultController
-            vc.answerString = "Your Data"
+            vc.answerString = "Bingo"
+            ///vc.inter = self.interstitial;
         }
     }
     
 }
-
+extension ViewController: GADInterstitialDelegate {
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("Interstitial loaded successfully")
+        ///ad.present(fromRootViewController: self)
+    }
+    
+    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        print("Fail to receive interstitial")
+    }
+    func interstitialDidDismissScreen(_ ad: GADInterstitial)
+    {
+        performSegue(withIdentifier: "Bingo", sender: self)
+    }
+}
 extension String {
     func subString(from: Int, to: Int) -> String {
         let startIndex = self.index(self.startIndex, offsetBy: from)

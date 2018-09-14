@@ -11,10 +11,17 @@ import UIKit
 import GoogleMobileAds
 class ResultController : UIViewController
 {
-    var answerString : String = " ";
+    var answerVNI : String = " ";
+    var laiVNI : String = " ";
     var QuynhAkaArray : [String] = ["ok_1","ok_2","ok_3","ok_4","ok_5","ok_6","ok_7"]
+    //var DialogueArray : [String] = ["d_1","d_2","d_3","d_4","d_5","d_6","d_7"]
+    var DialogueArray : [String] = ["ok_1","ok_2","ok_3","ok_4","ok_5","ok_6","ok_7"]
+
     @IBOutlet weak var answerLabel: UILabel!
+    
+    @IBOutlet weak var laiVNILabel: UILabel!
     @IBOutlet weak var QuynhAkaImg: UIImageView!
+    @IBOutlet weak var DialogueImg: UIImageView!
     @IBOutlet weak var adBanner: GADBannerView!
     var inter: GADInterstitial?
     @IBAction func btnPlay(_ sender: Any) {
@@ -23,9 +30,20 @@ class ResultController : UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         ///inter!.present(fromRootViewController: self)
-        answerLabel.text = answerString;
-        let index = Int(arc4random_uniform(6));
+        var index = Int(arc4random_uniform(6));
+        
         QuynhAkaImg.image = UIImage (named :QuynhAkaArray[index])
+        
+        laiVNILabel.text = laiVNI;
+        laiVNILabel.adjustsFontSizeToFitWidth = true;
+        laiVNILabel.minimumScaleFactor = 0.1;
+        
+        answerLabel.text = answerVNI;
+        answerLabel.adjustsFontSizeToFitWidth = true;
+        answerLabel.minimumScaleFactor = 0.1;
+        
+        index = Int(arc4random_uniform(6));
+        DialogueImg.image = UIImage (named :DialogueArray[index])
         adBanner.adUnitID="ca-app-pub-3940256099942544/2934735716";
         adBanner.rootViewController = self
         adBanner.load(GADRequest());

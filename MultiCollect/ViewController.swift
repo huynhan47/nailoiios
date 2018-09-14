@@ -82,7 +82,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var spacing = CGFloat(3) ;
     var size = 3 ;
     @IBOutlet weak var Banner: GADBannerView!
-    let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
+    ///let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
+    let path = Bundle.main.path(forResource: "laichu", ofType: "db")
     
     var imgQuestionName :String = "h_0007";
     var finishList :String? = "\"0000\"";
@@ -95,6 +96,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var finishCount : Int = 0;
     var skipQuestionListFlag : Bool = true;
     var interstitial: GADInterstitial?
+    var laiVNI : String = " ";
+    var answerVNI : String = " ";
     
     private func createAndLoadInterstitial() -> GADInterstitial? {
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712")
@@ -298,7 +301,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             OrgPuzzleString = row[2] as! String
             answerText = Array<String>(repeating: " ", count: OrgPuzzleString.split(separator: "_").count)
             totalIndex = answerText.count;
-            
+            laiVNI = row[6] as! String
+            answerVNI = row [5] as! String
             if(totalIndex <= 8)
             {
                 heightConst.constant = CGFloat(size) + 10
@@ -516,8 +520,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             defaults.set(BitCoin, forKey: "BitCoin")
             
             //Load Ad
-            ///performSegue(withIdentifier: "Bingo", sender: self)
-            interstitial?.present(fromRootViewController: self)
+            performSegue(withIdentifier: "Bingo", sender: self)
+            ///interstitial?.present(fromRootViewController: self)
         }
         else
         {
@@ -555,7 +559,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
        
         ///let abcArray : [Character] = Array(abcString)
         if (textRemain > 0)
-        {        
+        {
             for _ in 1...textRemain
             {
                 let offset = Int(arc4random_uniform(23));
@@ -604,7 +608,8 @@ extension ViewController: GADBannerViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "Bingo") {
             let vc = segue.destination as! ResultController
-            vc.answerString = "Bingo"
+            vc.answerVNI = answerVNI;
+            vc.laiVNI = laiVNI;
             ///vc.inter = self.interstitial;
         }
     }

@@ -44,7 +44,7 @@ class WelcomeController : UIViewController
             //popOver.barButtonItem
         }
     }
-    let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
+    let path = Bundle.main.path(forResource: "laichu", ofType: "db")
     var totalQuestionCount :String = " "
     var finishList : String? = "\"0000\""
     var finishCount : Int? = 0 ;

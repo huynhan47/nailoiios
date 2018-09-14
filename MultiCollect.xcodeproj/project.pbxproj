@@ -38,7 +38,6 @@
 		DB150D1A213A6EF3008677C7 /* h_0055.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CF1213A6EF1008677C7 /* h_0055.png */; };
 		DB150D1B213A6EF3008677C7 /* h_0017.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CF2213A6EF1008677C7 /* h_0017.png */; };
 		DB150D1C213A6EF3008677C7 /* h_0026.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CF3213A6EF1008677C7 /* h_0026.png */; };
-		DB150D1D213A6EF3008677C7 /* h_0033.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CF4213A6EF1008677C7 /* h_0033.png */; };
 		DB150D1E213A6EF3008677C7 /* h_0025.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CF5213A6EF1008677C7 /* h_0025.png */; };
 		DB150D1F213A6EF3008677C7 /* h_0022.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CF6213A6EF1008677C7 /* h_0022.png */; };
 		DB150D20213A6EF3008677C7 /* h_0027.png in Resources */ = {isa = PBXBuildFile; fileRef = DB150CF7213A6EF1008677C7 /* h_0027.png */; };
@@ -57,11 +56,8 @@
 		DB23806220F347750072C98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB23806120F347750072C98B /* Assets.xcassets */; };
 		DB23806520F347750072C98B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23806320F347750072C98B /* LaunchScreen.storyboard */; };
 		DB23806D20F348320072C98B /* targetCellUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23806C20F348320072C98B /* targetCellUnit.swift */; };
-		DB2F1AC0211547800001B447 /* laichu1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1ABF211547800001B447 /* laichu1.sqlite */; };
-		DB2F1AC22118393F0001B447 /* M1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC12118393F0001B447 /* M1.jpg */; };
 		DB2F1AC4211AE41E0001B447 /* bitscore.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC3211AE41E0001B447 /* bitscore.png */; };
 		DB2F1AC6211C2EB30001B447 /* framepng.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC5211C2EB30001B447 /* framepng.png */; };
-		DB2F1AC8211C2EFB0001B447 /* h_0033.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2F1AC7211C2EFB0001B447 /* h_0033.png */; };
 		DB382DFC2143712400EC2A18 /* e_5.png in Resources */ = {isa = PBXBuildFile; fileRef = DB382DF42143712200EC2A18 /* e_5.png */; };
 		DB382DFD2143712400EC2A18 /* e_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB382DF52143712200EC2A18 /* e_7.png */; };
 		DB382DFE2143712400EC2A18 /* e_8.png in Resources */ = {isa = PBXBuildFile; fileRef = DB382DF62143712200EC2A18 /* e_8.png */; };
@@ -78,6 +74,11 @@
 		DB7ABA1D212813EF00DA6696 /* skip_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7ABA1B212813EE00DA6696 /* skip_icon.png */; };
 		DB83F84B2149032600C40766 /* dialogue.png in Resources */ = {isa = PBXBuildFile; fileRef = DB83F84A2149032500C40766 /* dialogue.png */; };
 		DB83F84D21490A1E00C40766 /* two_sides.png in Resources */ = {isa = PBXBuildFile; fileRef = DB83F84C21490A1C00C40766 /* two_sides.png */; };
+		DB83F84F214A077A00C40766 /* VCANUN.TTF in Resources */ = {isa = PBXBuildFile; fileRef = DB83F84E214A023700C40766 /* VCANUN.TTF */; };
+		DB83F853214A0A9D00C40766 /* play_retro_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DB83F852214A0A9D00C40766 /* play_retro_button.png */; };
+		DB83F856214A42F200C40766 /* welcome_bg_dhlc.png in Resources */ = {isa = PBXBuildFile; fileRef = DB382E072143BB4700EC2A18 /* welcome_bg_dhlc.png */; };
+		DB83F858214A431600C40766 /* h_0033.png in Resources */ = {isa = PBXBuildFile; fileRef = DB382E082143BB5000EC2A18 /* h_0033.png */; };
+		DB83F85A214A471400C40766 /* laichu.db in Resources */ = {isa = PBXBuildFile; fileRef = DB83F859214A471400C40766 /* laichu.db */; };
 		DB957D5D21427675005CE8BC /* ok_4.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D572142766E005CE8BC /* ok_4.png */; };
 		DB957D5E21427675005CE8BC /* ok_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5821427670005CE8BC /* ok_7.png */; };
 		DB957D5F21427675005CE8BC /* ok_5.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5921427671005CE8BC /* ok_5.png */; };
@@ -86,8 +87,6 @@
 		DB957D6221427675005CE8BC /* ok_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB957D5C21427674005CE8BC /* ok_3.png */; };
 		DBCD26D521253386007BCFF2 /* btc_award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D321253385007BCFF2 /* btc_award.png */; };
 		DBCD26D621253386007BCFF2 /* award.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D421253385007BCFF2 /* award.png */; };
-		DBCD26DA21255730007BCFF2 /* play_retro_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26D92125572F007BCFF2 /* play_retro_button.png */; };
-		DBCD26DC212559F3007BCFF2 /* welcome_bg_dhlc.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */; };
 		DBCD26DF21255EE7007BCFF2 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26DD21255EE5007BCFF2 /* clock.png */; };
 		DBCD26E021255EE7007BCFF2 /* shareapp_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26DE21255EE6007BCFF2 /* shareapp_icon.png */; };
 		DBCD26E221256068007BCFF2 /* bitcoin_earn_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCD26E121256067007BCFF2 /* bitcoin_earn_logo.png */; };
@@ -130,7 +129,6 @@
 		DB150CF1213A6EF1008677C7 /* h_0055.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0055.png; sourceTree = "<group>"; };
 		DB150CF2213A6EF1008677C7 /* h_0017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0017.png; sourceTree = "<group>"; };
 		DB150CF3213A6EF1008677C7 /* h_0026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0026.png; sourceTree = "<group>"; };
-		DB150CF4213A6EF1008677C7 /* h_0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = h_0033.png; path = ../../../main/assets/Pics/h_0033.png; sourceTree = "<group>"; };
 		DB150CF5213A6EF1008677C7 /* h_0025.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0025.png; sourceTree = "<group>"; };
 		DB150CF6213A6EF1008677C7 /* h_0022.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0022.png; sourceTree = "<group>"; };
 		DB150CF7213A6EF1008677C7 /* h_0027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0027.png; sourceTree = "<group>"; };
@@ -151,11 +149,8 @@
 		DB23806420F347750072C98B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB23806620F347750072C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB23806C20F348320072C98B /* targetCellUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetCellUnit.swift; sourceTree = "<group>"; };
-		DB2F1ABF211547800001B447 /* laichu1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = laichu1.sqlite; sourceTree = SOURCE_ROOT; };
-		DB2F1AC12118393F0001B447 /* M1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = M1.jpg; sourceTree = "<group>"; };
 		DB2F1AC3211AE41E0001B447 /* bitscore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitscore.png; sourceTree = "<group>"; };
 		DB2F1AC5211C2EB30001B447 /* framepng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = framepng.png; sourceTree = "<group>"; };
-		DB2F1AC7211C2EFB0001B447 /* h_0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0033.png; sourceTree = "<group>"; };
 		DB382DF42143712200EC2A18 /* e_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e_5.png; sourceTree = "<group>"; };
 		DB382DF52143712200EC2A18 /* e_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e_7.png; sourceTree = "<group>"; };
 		DB382DF62143712200EC2A18 /* e_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e_8.png; sourceTree = "<group>"; };
@@ -166,7 +161,6 @@
 		DB382DFB2143712400EC2A18 /* e_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e_1.png; sourceTree = "<group>"; };
 		DB382E072143BB4700EC2A18 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_dhlc.png; sourceTree = "<group>"; };
 		DB382E082143BB5000EC2A18 /* h_0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h_0033.png; sourceTree = "<group>"; };
-		DB382E0A2143BB5A00EC2A18 /* h_0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = h_0033.png; path = ../../../../main/assets/Pics/h_0033.png; sourceTree = "<group>"; };
 		DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fromCellUnit.swift; sourceTree = "<group>"; };
 		DB6B2CF921462BFB00C3FF38 /* retro_ketquadung.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = retro_ketquadung.jpg; sourceTree = "<group>"; };
 		DB7ABA16212802AA00DA6696 /* btn_back_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back_left.png; sourceTree = "<group>"; };
@@ -175,6 +169,9 @@
 		DB7ABA1B212813EE00DA6696 /* skip_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip_icon.png; sourceTree = "<group>"; };
 		DB83F84A2149032500C40766 /* dialogue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialogue.png; sourceTree = "<group>"; };
 		DB83F84C21490A1C00C40766 /* two_sides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two_sides.png; sourceTree = "<group>"; };
+		DB83F84E214A023700C40766 /* VCANUN.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = VCANUN.TTF; sourceTree = "<group>"; };
+		DB83F852214A0A9D00C40766 /* play_retro_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_retro_button.png; sourceTree = "<group>"; };
+		DB83F859214A471400C40766 /* laichu.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = laichu.db; sourceTree = "<group>"; };
 		DB957D572142766E005CE8BC /* ok_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_4.png; sourceTree = "<group>"; };
 		DB957D5821427670005CE8BC /* ok_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_7.png; sourceTree = "<group>"; };
 		DB957D5921427671005CE8BC /* ok_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_5.png; sourceTree = "<group>"; };
@@ -183,8 +180,6 @@
 		DB957D5C21427674005CE8BC /* ok_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_3.png; sourceTree = "<group>"; };
 		DBCD26D321253385007BCFF2 /* btc_award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btc_award.png; sourceTree = "<group>"; };
 		DBCD26D421253385007BCFF2 /* award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = award.png; sourceTree = "<group>"; };
-		DBCD26D92125572F007BCFF2 /* play_retro_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_retro_button.png; sourceTree = "<group>"; };
-		DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome_bg_dhlc.png; path = "../../../main/res/drawable-xhdpi/welcome_bg_dhlc.png"; sourceTree = "<group>"; };
 		DBCD26DD21255EE5007BCFF2 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		DBCD26DE21255EE6007BCFF2 /* shareapp_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareapp_icon.png; sourceTree = "<group>"; };
 		DBCD26E121256067007BCFF2 /* bitcoin_earn_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitcoin_earn_logo.png; sourceTree = "<group>"; };
@@ -244,21 +239,16 @@
 			isa = PBXGroup;
 			children = (
 				DB382E062143BB2B00EC2A18 /* Image */,
-				DBCD26DB212559F2007BCFF2 /* welcome_bg_dhlc.png */,
-				DB150CF4213A6EF1008677C7 /* h_0033.png */,
-				DBDD3EC721228E8E006F571D /* ResultController.swift */,
-				DB2F1ABF211547800001B447 /* laichu1.sqlite */,
 				DB00729C2123DCBF00A60A97 /* Bellerose.ttf */,
+				DBDD3EC721228E8E006F571D /* ResultController.swift */,
 				DB23805A20F347720072C98B /* AppDelegate.swift */,
 				DB23805C20F347720072C98B /* ViewController.swift */,
 				DB23805E20F347720072C98B /* Main.storyboard */,
 				DB00729E2123FECF00A60A97 /* WelcomeController.swift */,
 				DB23806C20F348320072C98B /* targetCellUnit.swift */,
 				DB47AEB520F4A5C400F563BE /* fromCellUnit.swift */,
-				DB2F1AC7211C2EFB0001B447 /* h_0033.png */,
 				DB23806120F347750072C98B /* Assets.xcassets */,
 				DB2F1AC3211AE41E0001B447 /* bitscore.png */,
-				DB2F1AC12118393F0001B447 /* M1.jpg */,
 				DB2F1AC5211C2EB30001B447 /* framepng.png */,
 				DB23806320F347750072C98B /* LaunchScreen.storyboard */,
 				DB23806620F347750072C98B /* Info.plist */,
@@ -269,10 +259,12 @@
 		DB382E062143BB2B00EC2A18 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				DB83F859214A471400C40766 /* laichu.db */,
+				DB83F852214A0A9D00C40766 /* play_retro_button.png */,
+				DB83F84E214A023700C40766 /* VCANUN.TTF */,
 				DB83F84C21490A1C00C40766 /* two_sides.png */,
 				DB83F84A2149032500C40766 /* dialogue.png */,
 				DB6B2CF921462BFB00C3FF38 /* retro_ketquadung.jpg */,
-				DB382E0A2143BB5A00EC2A18 /* h_0033.png */,
 				DB957D5A21427672005CE8BC /* ok_2.png */,
 				DB957D5C21427674005CE8BC /* ok_3.png */,
 				DB957D572142766E005CE8BC /* ok_4.png */,
@@ -287,7 +279,6 @@
 				DBCD26DD21255EE5007BCFF2 /* clock.png */,
 				DBCD26DE21255EE6007BCFF2 /* shareapp_icon.png */,
 				DB382E072143BB4700EC2A18 /* welcome_bg_dhlc.png */,
-				DBCD26D92125572F007BCFF2 /* play_retro_button.png */,
 				DB382DFB2143712400EC2A18 /* e_1.png */,
 				DB382DF72143712300EC2A18 /* e_2.png */,
 				DB382DF82143712300EC2A18 /* e_3.png */,
@@ -410,6 +401,7 @@
 				DB150D18213A6EF3008677C7 /* h_0032.png in Resources */,
 				DB150D1C213A6EF3008677C7 /* h_0026.png in Resources */,
 				DB150D22213A6EF3008677C7 /* h_0057.png in Resources */,
+				DB83F856214A42F200C40766 /* welcome_bg_dhlc.png in Resources */,
 				DB150D23213A6EF3008677C7 /* h_0074.png in Resources */,
 				DBCD26D521253386007BCFF2 /* btc_award.png in Resources */,
 				DB00729D2123DCBF00A60A97 /* Bellerose.ttf in Resources */,
@@ -420,24 +412,23 @@
 				DB150D24213A6EF3008677C7 /* h_0045.png in Resources */,
 				DB150D12213A6EF3008677C7 /* h_0071.png in Resources */,
 				DB2F1AC4211AE41E0001B447 /* bitscore.png in Resources */,
-				DBCD26DA21255730007BCFF2 /* play_retro_button.png in Resources */,
 				DB150D0B213A6EF3008677C7 /* h_0009.png in Resources */,
 				DB150D29213A6EF3008677C7 /* h_0075.png in Resources */,
 				DBDD3ECC2122C28E006F571D /* ok_1.png in Resources */,
+				DB83F85A214A471400C40766 /* laichu.db in Resources */,
 				DB382E002143712400EC2A18 /* e_3.png in Resources */,
 				DB150D19213A6EF3008677C7 /* h_0044.png in Resources */,
 				DB150D01213A6EF3008677C7 /* h_0028.png in Resources */,
-				DB2F1AC22118393F0001B447 /* M1.jpg in Resources */,
 				DB150D1E213A6EF3008677C7 /* h_0025.png in Resources */,
 				DB150D0E213A6EF3008677C7 /* h_0034.png in Resources */,
 				DB6B2CFA21462BFB00C3FF38 /* retro_ketquadung.jpg in Resources */,
 				DB382E032143712400EC2A18 /* e_1.png in Resources */,
+				DB83F84F214A077A00C40766 /* VCANUN.TTF in Resources */,
 				DB150D20213A6EF3008677C7 /* h_0027.png in Resources */,
 				DB150D0D213A6EF3008677C7 /* h_0012.png in Resources */,
 				DB150D11213A6EF3008677C7 /* h_0019.png in Resources */,
 				DB150D05213A6EF3008677C7 /* h_0023.png in Resources */,
 				DB150D1A213A6EF3008677C7 /* h_0055.png in Resources */,
-				DB2F1AC8211C2EFB0001B447 /* h_0033.png in Resources */,
 				DB382DFE2143712400EC2A18 /* e_8.png in Resources */,
 				DBCD26D621253386007BCFF2 /* award.png in Resources */,
 				DB23806520F347750072C98B /* LaunchScreen.storyboard in Resources */,
@@ -445,16 +436,15 @@
 				DB150D27213A6EF3008677C7 /* h_0051.png in Resources */,
 				DB957D6021427675005CE8BC /* ok_2.png in Resources */,
 				DB150D07213A6EF3008677C7 /* h_0031.png in Resources */,
-				DBCD26DC212559F3007BCFF2 /* welcome_bg_dhlc.png in Resources */,
 				DB150D10213A6EF3008677C7 /* h_0072.png in Resources */,
 				DB150D09213A6EF3008677C7 /* h_0048.png in Resources */,
 				DB150D0C213A6EF3008677C7 /* h_0073.png in Resources */,
 				DB150D26213A6EF3008677C7 /* h_0088.png in Resources */,
-				DB2F1AC0211547800001B447 /* laichu1.sqlite in Resources */,
 				DB957D5D21427675005CE8BC /* ok_4.png in Resources */,
 				DB150D08213A6EF3008677C7 /* h_0037.png in Resources */,
 				DB382DFF2143712400EC2A18 /* e_2.png in Resources */,
 				DBCD26E221256068007BCFF2 /* bitcoin_earn_logo.png in Resources */,
+				DB83F858214A431600C40766 /* h_0033.png in Resources */,
 				DB382E012143712400EC2A18 /* e_6.png in Resources */,
 				DB150D17213A6EF3008677C7 /* h_0016.png in Resources */,
 				DB150D03213A6EF3008677C7 /* h_0010.png in Resources */,
@@ -471,10 +461,10 @@
 				DB150D04213A6EF3008677C7 /* h_0014.png in Resources */,
 				DB150D28213A6EF3008677C7 /* h_0046.png in Resources */,
 				DB83F84D21490A1E00C40766 /* two_sides.png in Resources */,
+				DB83F853214A0A9D00C40766 /* play_retro_button.png in Resources */,
 				DB23806220F347750072C98B /* Assets.xcassets in Resources */,
 				DB382DFD2143712400EC2A18 /* e_7.png in Resources */,
 				DBCD26E021255EE7007BCFF2 /* shareapp_icon.png in Resources */,
-				DB150D1D213A6EF3008677C7 /* h_0033.png in Resources */,
 				DB150D21213A6EF3008677C7 /* h_0024.png in Resources */,
 				DB23806020F347720072C98B /* Main.storyboard in Resources */,
 				DB957D5F21427675005CE8BC /* ok_5.png in Resources */,

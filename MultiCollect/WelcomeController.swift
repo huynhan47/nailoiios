@@ -18,6 +18,7 @@ class WelcomeController : UIViewController
     @IBOutlet weak var lblBitCoin: UILabel!
     
     
+    @IBOutlet weak var ScoreView: UIView!
     @IBAction func ResetGame(_ sender: Any) {
         self.defaults.set("\"0000\"", forKey: "finishList")
         defaults.set("\"0000\"", forKey: "skipList")
@@ -48,6 +49,10 @@ class WelcomeController : UIViewController
     var totalQuestionCount :String = " "
     var finishList : String? = "\"0000\""
     var finishCount : Int? = 0 ;
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     override func viewDidLoad() {
         score =  defaults.string(forKey: "score");
         if (score == nil)
@@ -87,6 +92,9 @@ class WelcomeController : UIViewController
         finishCount = finishList?.split(separator: ",").count ;
         lblScore.text = String(finishCount! - 1) + "/" + totalQuestionCount;
         print("total ne 1:" +  lblScore.text! )
+        
+        ScoreView.layer.borderWidth = 3;
+        ScoreView.layer.borderColor = UIColor.white.cgColor;
         
     }
 }

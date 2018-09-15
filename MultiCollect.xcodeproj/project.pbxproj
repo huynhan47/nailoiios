@@ -238,8 +238,8 @@
 		DB23805920F347720072C98B /* MultiCollect */ = {
 			isa = PBXGroup;
 			children = (
-				DB382E062143BB2B00EC2A18 /* Image */,
 				DB00729C2123DCBF00A60A97 /* Bellerose.ttf */,
+				DB382E062143BB2B00EC2A18 /* Image */,
 				DBDD3EC721228E8E006F571D /* ResultController.swift */,
 				DB23805A20F347720072C98B /* AppDelegate.swift */,
 				DB23805C20F347720072C98B /* ViewController.swift */,

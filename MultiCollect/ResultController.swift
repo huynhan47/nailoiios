@@ -17,6 +17,7 @@ class ResultController : UIViewController
     //var DialogueArray : [String] = ["d_1","d_2","d_3","d_4","d_5","d_6","d_7"]
     var DialogueArray : [String] = ["ok_1","ok_2","ok_3","ok_4","ok_5","ok_6","ok_7"]
 
+    @IBOutlet weak var LaiView: UIView!
     @IBOutlet weak var answerLabel: UILabel!
     
     @IBOutlet weak var laiVNILabel: UILabel!
@@ -47,6 +48,9 @@ class ResultController : UIViewController
         adBanner.adUnitID="ca-app-pub-3940256099942544/2934735716";
         adBanner.rootViewController = self
         adBanner.load(GADRequest());
+        
+        LaiView.layer.borderColor = UIColor.white.cgColor;
+        LaiView.layer.borderWidth = 5;
     }
 }
 

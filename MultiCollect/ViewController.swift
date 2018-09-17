@@ -15,6 +15,7 @@ import SQLite
 class ViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
 
+    @IBOutlet var MainView: UIView!
     @IBOutlet weak var target: UICollectionView!
     @IBOutlet weak var from: UICollectionView!
   
@@ -61,7 +62,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         skipList! += (",\"" + currentQuestionID! + "\"")
         print(skipList!)
         defaults.set(skipList!, forKey: "skipList")
-        self.viewDidLoad();
+        self.viewDidLoad()
+ 
     }
     @IBAction func Bingo(_ sender: Any) {
         performSegue(withIdentifier: "Bingo", sender: self)
@@ -138,6 +140,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentIndex = 0;
         interstitial = createAndLoadInterstitial()
         ///defaults.set("\"0000\",\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"", forKey: "skipList")
         print(shuffle(array: puzzText))
@@ -147,8 +151,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.delegate = self;
         target.dataSource = self;
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
         
         //Ad
         
@@ -213,10 +215,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         print(finishList!)
         
        skipList =  defaults.string(forKey: "skipList");
-        if (skipList == nil)
-        {
-            skipList = "\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"";
-        }
+        //if (skipList == nil)
+        //{
+            //skipList = "\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"";
+        //}
         print(skipList!)
         
         //defaults.set("\"0003\"", forKey: "finishList")
@@ -237,7 +239,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         btnBitScore.setTitle(String(BitCoin), for: .normal)
         //User Default - Start
         
-        var sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + ") ORDER BY ID ASC LIMIT 1 "
+        var sql = "SELECT * FROM LAICHU WHERE ID  NOT IN (" + finishList! + "," + skipList! + ") ORDER BY ID ASC LIMIT 1 "
         ///var sql = "SELECT * FROM LAICHU WHERE ID   IN (\"0009\") ORDER BY ID ASC LIMIT 1 "
         print("sql ne: " + sql)
         
@@ -326,7 +328,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         
         //Target UI
         let numberOfItemsPerRowTarget = 8;
-        let flowLayoutTarget = target.collectionViewLayout as! UICollectionViewFlowLayout
+        //let flowLayoutTarget = target.collectionViewLayout as! UICollectionViewFlowLayout
         
         spacing = max / 212;
         let totalSpaceTarget = //flowLayoutTarget.sectionInset.left
@@ -335,20 +337,21 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         size = Int((max - totalSpaceTarget) / CGFloat(numberOfItemsPerRowTarget))
         
         ///heightConst.constant = CGFloat(size) + 10 // Cancel. It will set after get answer count
-        if(totalIndex <= 8)
+        if(totalIndex < 8)
         {
             heightConst.constant = CGFloat(size) + 10
+            target.contentInset.left = (max - totalSpaceTarget - CGFloat((size * totalIndex)))/2;
+            target.contentInset.right = (max - totalSpaceTarget - CGFloat((size * totalIndex)))/2;
         }
         else{
-            heightConst.constant = CGFloat(size)*2 + 10
+            heightConst.constant = CGFloat(size)*2 + 20
+            target.contentInset.left = 0
+            target.contentInset.right = 0
         }
         
         target.contentInset.top = 0;
-        target.contentInset.left = (max - totalSpaceTarget - CGFloat((size * totalIndex)))/2;
-        target.contentInset.right = (max - totalSpaceTarget - CGFloat((size * totalIndex)))/2;
+       
         target.reloadData();
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
     
@@ -454,7 +457,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
          else if collectionView == self.from
          {
-            if (puzzText[indexPath.row] == " ") // Check if blank cell press
+            if (puzzText[indexPath.row] == " " || answerText.index(of: " ") == nil) // Check if blank cell press
             {
                 return;
             }

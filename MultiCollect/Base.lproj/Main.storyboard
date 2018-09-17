@@ -218,35 +218,53 @@
                             <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="sB2-Ek-6wz" userLabel="Header Stack View">
                                 <rect key="frame" x="16" y="20" width="359" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPZ-g6-kUg">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWP-3Y-k3a">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPZ-g6-kUg">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="9Gb-nf-mAt"/>
+                                                    <constraint firstAttribute="height" constant="60" id="BRv-qm-SVO"/>
+                                                </constraints>
+                                                <state key="normal" image="btn_back_left.png"/>
+                                                <connections>
+                                                    <segue destination="dYh-gW-q81" kind="show" id="RRN-vB-xdA"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/41" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lei-yi-WO1">
+                                                <rect key="frame" x="129.5" y="13" width="100" height="34.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="5fc-aV-WBo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BelleroseLight" family="Bellerose" pointSize="17"/>
+                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-em-ry8">
+                                                <rect key="frame" x="229" y="0.0" width="130" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="euf-dO-UJ6"/>
+                                                    <constraint firstAttribute="width" secondItem="Q5v-em-ry8" secondAttribute="height" multiplier="13:6" id="xQn-33-VTm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BelleroseLight" family="Bellerose" pointSize="17"/>
+                                                <inset key="titleEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" backgroundImage="bitscore"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.11002204754601227" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="9Gb-nf-mAt"/>
+                                            <constraint firstItem="oPZ-g6-kUg" firstAttribute="top" secondItem="hWP-3Y-k3a" secondAttribute="top" id="8sQ-Bw-cXC"/>
+                                            <constraint firstItem="lei-yi-WO1" firstAttribute="centerY" secondItem="hWP-3Y-k3a" secondAttribute="centerY" id="BS0-vT-IEW"/>
+                                            <constraint firstItem="Q5v-em-ry8" firstAttribute="top" secondItem="hWP-3Y-k3a" secondAttribute="top" id="Ede-DU-on0"/>
+                                            <constraint firstItem="lei-yi-WO1" firstAttribute="centerX" secondItem="hWP-3Y-k3a" secondAttribute="centerX" id="Guq-C2-Rwl"/>
+                                            <constraint firstAttribute="trailing" secondItem="Q5v-em-ry8" secondAttribute="trailing" id="swI-IB-ZMl"/>
+                                            <constraint firstItem="oPZ-g6-kUg" firstAttribute="leading" secondItem="hWP-3Y-k3a" secondAttribute="leading" id="uhV-Cv-sAK"/>
+                                            <constraint firstItem="lei-yi-WO1" firstAttribute="centerX" secondItem="hWP-3Y-k3a" secondAttribute="centerX" id="urd-as-KMv"/>
                                         </constraints>
-                                        <state key="normal" image="btn_back_left.png"/>
-                                        <connections>
-                                            <segue destination="dYh-gW-q81" kind="show" id="RRN-vB-xdA"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/41" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lei-yi-WO1">
-                                        <rect key="frame" x="60" y="0.0" width="100" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="5fc-aV-WBo"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="BelleroseLight" family="Bellerose" pointSize="17"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-em-ry8">
-                                        <rect key="frame" x="160" y="0.0" width="199" height="60"/>
-                                        <fontDescription key="fontDescription" name="BelleroseLight" family="Bellerose" pointSize="17"/>
-                                        <inset key="titleEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" backgroundImage="bitscore"/>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Q5v-em-ry8" secondAttribute="trailing" id="CHZ-bR-PNc"/>
-                                    <constraint firstItem="lei-yi-WO1" firstAttribute="centerX" secondItem="sB2-Ek-6wz" secondAttribute="centerX" id="KGq-YT-rkZ"/>
                                     <constraint firstAttribute="height" constant="60" id="a14-Xf-Ogi"/>
                                 </constraints>
                             </stackView>
@@ -256,7 +274,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="152" id="FHg-ma-yCk"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="dgC-cT-lpR">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="2" id="dgC-cT-lpR">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -316,7 +334,7 @@
                                     <constraint firstItem="0Rg-hq-nKS" firstAttribute="leading" secondItem="bGc-sK-r9R" secondAttribute="leading" id="zBr-Hh-JhY"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="SkipStack" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-F4-c8b">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="SkipStack" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-F4-c8b" userLabel="Function Stack View">
                                 <rect key="frame" x="37" y="378" width="300" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ln1-uj-SmI">
@@ -427,11 +445,11 @@
                         <constraints>
                             <constraint firstItem="bGc-sK-r9R" firstAttribute="top" secondItem="sB2-Ek-6wz" secondAttribute="bottom" constant="10" id="1HW-pI-t4w"/>
                             <constraint firstAttribute="trailing" secondItem="kYr-Xy-KVy" secondAttribute="trailing" id="BsP-PV-1QM"/>
-                            <constraint firstItem="i9N-F4-c8b" firstAttribute="top" secondItem="PEy-OZ-XEA" secondAttribute="bottom" id="Eid-G0-S6H"/>
                             <constraint firstItem="kYr-Xy-KVy" firstAttribute="leading" secondItem="gVR-0y-76C" secondAttribute="leading" id="I9y-n7-O7V"/>
                             <constraint firstItem="sB2-Ek-6wz" firstAttribute="leading" secondItem="gVR-0y-76C" secondAttribute="leadingMargin" id="Ln8-Sp-eiz"/>
                             <constraint firstItem="70n-Q8-mB3" firstAttribute="top" secondItem="kYr-Xy-KVy" secondAttribute="bottom" id="P5d-S5-Acf"/>
                             <constraint firstItem="70n-Q8-mB3" firstAttribute="leading" secondItem="gVR-0y-76C" secondAttribute="leading" id="S4U-vA-wL1"/>
+                            <constraint firstItem="kYr-Xy-KVy" firstAttribute="top" secondItem="i9N-F4-c8b" secondAttribute="bottom" constant="47" id="SLr-yK-Jho"/>
                             <constraint firstAttribute="trailing" secondItem="bGc-sK-r9R" secondAttribute="trailing" constant="10" id="UdR-YT-Tfb"/>
                             <constraint firstItem="i9N-F4-c8b" firstAttribute="centerX" secondItem="gVR-0y-76C" secondAttribute="centerX" id="XDu-sR-fxc"/>
                             <constraint firstItem="bGc-sK-r9R" firstAttribute="leading" secondItem="gVR-0y-76C" secondAttribute="leading" constant="10" id="YLI-gR-az9"/>
@@ -446,6 +464,7 @@
                     </view>
                     <connections>
                         <outlet property="Banner" destination="70n-Q8-mB3" id="CsO-pU-53L"/>
+                        <outlet property="MainView" destination="gVR-0y-76C" id="fCj-WU-uuA"/>
                         <outlet property="btnBitScore" destination="Q5v-em-ry8" id="hKO-6i-ytu"/>
                         <outlet property="from" destination="kYr-Xy-KVy" id="luQ-F0-PyW"/>
                         <outlet property="heightConst" destination="FHg-ma-yCk" id="cd0-z5-tm7"/>
@@ -475,7 +494,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retro_ketquadung.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e5v-Zd-o3o">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialogue.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ljb-Zw-x3e">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialogue.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ljb-Zw-x3e">
                                 <rect key="frame" x="16" y="30" width="160" height="85.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ljb-Zw-x3e" secondAttribute="height" multiplier="15:8" id="rWs-31-tB2"/>
@@ -639,6 +658,7 @@
         <image name="welcome_bg_dhlc.png" width="900" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4aM-O0-fgX"/>
+        <segue reference="UaC-Ua-qLT"/>
+        <segue reference="NDf-DV-SoR"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -148,35 +148,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.dataSource = self;
         // Do any additional setup after loading the view, typically from a nib.
         
-        // make UI
-        //From UI
-        let numberOfItemsPerRow = 8;
-        let flowLayout = target.collectionViewLayout as! UICollectionViewFlowLayout
         
-        spacing = max / 212;
-        let totalSpace = flowLayout.sectionInset.left
-            + flowLayout.sectionInset.right +
-             (spacing * CGFloat(numberOfItemsPerRow - 1))
-        size = Int((max - totalSpace) / CGFloat(numberOfItemsPerRow))
-        
-        heightConstFrom.constant = (CGFloat(size) + 10)*2
-        from.contentInset.bottom = 10;
-        from.reloadData();
-      
-        
-        //Target UI
-        let numberOfItemsPerRowTarget = 8;
-        let flowLayoutTarget = target.collectionViewLayout as! UICollectionViewFlowLayout
-        
-        spacing = max / 212;
-        let totalSpaceTarget = flowLayoutTarget.sectionInset.left
-            + flowLayoutTarget.sectionInset.right +
-            (spacing * CGFloat(numberOfItemsPerRowTarget - 1))
-        size = Int((max - totalSpaceTarget) / CGFloat(numberOfItemsPerRowTarget))
-        
-        ///heightConst.constant = CGFloat(size) + 10 // Cancel. It will set after get answer count
-        target.contentInset.top = 0;
-        target.reloadData();
         
         //Ad
         
@@ -303,13 +275,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             totalIndex = answerText.count;
             laiVNI = row[6] as! String
             answerVNI = row [5] as! String
-            if(totalIndex <= 8)
-            {
-                heightConst.constant = CGFloat(size) + 10
-            }
-            else{
-                heightConst.constant = CGFloat(size)*2 + 10
-            }
+            
             
             let orgPuzzle = OrgPuzzleString.split(separator: "_")
             var orgPuzzleArray : [String] = []
@@ -339,6 +305,50 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         finishCount = finishList!.split(separator: ",").count;
         lblProgress.text = String(finishCount - 1) + "/" + String(totalQuestionCount);
         //User Default - End
+        
+        
+        // make UI
+        //From UI
+        let numberOfItemsPerRow = 8;
+        let flowLayout = target.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        spacing = max / 212;
+        let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right +
+            (spacing * CGFloat(numberOfItemsPerRow - 1))
+        size = Int((max - totalSpace) / CGFloat(numberOfItemsPerRow))
+        
+        heightConstFrom.constant = (CGFloat(size) + 10)*2
+        from.contentInset.bottom = 10;
+       
+        from.reloadData();
+        
+        
+        //Target UI
+        let numberOfItemsPerRowTarget = 8;
+        let flowLayoutTarget = target.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        spacing = max / 212;
+        let totalSpaceTarget = //flowLayoutTarget.sectionInset.left
+           // + flowLayoutTarget.sectionInset.right +
+            (spacing * CGFloat(numberOfItemsPerRowTarget - 1))
+        size = Int((max - totalSpaceTarget) / CGFloat(numberOfItemsPerRowTarget))
+        
+        ///heightConst.constant = CGFloat(size) + 10 // Cancel. It will set after get answer count
+        if(totalIndex <= 8)
+        {
+            heightConst.constant = CGFloat(size) + 10
+        }
+        else{
+            heightConst.constant = CGFloat(size)*2 + 10
+        }
+        
+        target.contentInset.top = 0;
+        target.contentInset.left = (max - totalSpaceTarget - CGFloat((size * totalIndex)))/2;
+        target.contentInset.right = (max - totalSpaceTarget - CGFloat((size * totalIndex)))/2;
+        target.reloadData();
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
     
@@ -423,7 +433,11 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         UIGraphicsEndImageContext()
         return image!;
     }
-    
+    //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    //{
+        //return UIEdgeInsetsMake(0,0,0,0)
+        
+    //}
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          if collectionView == self.target
          {

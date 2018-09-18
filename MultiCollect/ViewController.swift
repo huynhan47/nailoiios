@@ -63,7 +63,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         print(skipList!)
         defaults.set(skipList!, forKey: "skipList")
         self.viewDidLoad()
- 
+
     }
     @IBAction func Bingo(_ sender: Any) {
         performSegue(withIdentifier: "Bingo", sender: self)
@@ -152,6 +152,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.dataSource = self;
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Don't know why to put this line here , but it uses to fix skip bug
+        target.reloadData();
         //Ad
         
         Banner.adUnitID="ca-app-pub-3940256099942544/2934735716";
@@ -350,7 +352,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
         
         target.contentInset.top = 0;
-       
         target.reloadData();
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -367,13 +368,16 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         // Dispose of any resources that can be recreated.
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1;
+        return 1 ;
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == self.target
         {
-            return OrgPuzzleString.split(separator: "_").count;
+            //return OrgPuzzleString.split(separator: "_").count;
+            let index = OrgPuzzleString.split(separator: "_").count
+            print("OrgPuzzleString ne: " + String(index))
+            return index
         }
         else
             //if collectionView == self.from
@@ -383,7 +387,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         if collectionView == self.target
         {
             
@@ -403,7 +407,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             {
                 cell.contentView.backgroundColor = UIColor.black;
             }
-         
+    
             return cell;
             
         }
@@ -426,6 +430,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             
             return cell;
         }
+        
     }
     func captureScreen() -> UIImage {
         var window: UIWindow? = UIApplication.shared.keyWindow
@@ -548,18 +553,18 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             var MessageArray : [String] = [
                 "Sai Rồi Bạn Ơi Thử Lại Nhé",
                 "Sai Rồi! Thử Hỏi Bạn Bè Xem Sao! Nút Share Bên Dưới",
-                "e_3",
-                "e_4",
-                "e_5",
-                "e_6",
-                "e_7",
-                "e_8"]
+                "Sai Rồi Bạn Ơi Thử Lại Nhé",
+                "Sai Rồi Bạn Ơi Thử Lại Nhé",
+                "Sai Rồi Bạn Ơi Thử Lại Nhé",
+                "Sai Rồi Bạn Ơi Thử Lại Nhé",
+                "Sai Rồi Bạn Ơi Thử Lại Nhé",
+                "Sai Rồi Bạn Ơi Thử Lại Nhé"]
   
             let indexImage = Int(arc4random_uniform(6));
             let indexMessage = Int(arc4random_uniform(6));
             //QuynhAkaImg.image = UIImage (named :QuynhAkaArray[index])
             
-            self.view.makeToast(MessageArray[indexMessage], duration: 2.0, point: CGPoint(x: self.view.frame.width/2  , y: self.view.frame.height/2), title: "Toast Title", image:  UIImage (named :QuynhAkaArray[indexImage])) { didTap in
+            self.view.makeToast(MessageArray[indexMessage], duration: 2.0, point: CGPoint(x: self.view.frame.width/2  , y: self.view.frame.height/2), title: "Thông Báo", image:  UIImage (named :QuynhAkaArray[indexImage])) { didTap in
                 if didTap {
                     print("completion from tap")
                 } else {

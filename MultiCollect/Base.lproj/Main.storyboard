@@ -92,21 +92,21 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="NTG-f3-ak0" userLabel="Button Group Stack View">
-                                <rect key="frame" x="62.5" y="577" width="250" height="70"/>
+                                <rect key="frame" x="112.5" y="577" width="150" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U5b-yb-9pJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd7-QO-tkl">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd7-QO-tkl">
+                                                <rect key="frame" x="-112.5" y="-577" width="100" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="iwC-08-a75"/>
                                                 </constraints>
                                                 <inset key="contentEdgeInsets" minX="26" minY="0.0" maxX="26" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="bitcoin_earn_logo.png"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bax-4T-ngd">
-                                                <rect key="frame" x="0.0" y="48" width="100" height="22"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bax-4T-ngd">
+                                                <rect key="frame" x="-112.5" y="-577" width="100" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="jdj-28-VRh"/>
                                                     <constraint firstAttribute="height" constant="22" id="o5E-dV-6ST"/>
@@ -127,7 +127,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vhT-Fb-8pb">
-                                        <rect key="frame" x="75" y="0.0" width="100" height="70"/>
+                                        <rect key="frame" x="-25" y="0.0" width="100" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-k1-58F">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
@@ -152,7 +152,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ng1-0x-YyR">
-                                        <rect key="frame" x="150" y="0.0" width="100" height="70"/>
+                                        <rect key="frame" x="50" y="0.0" width="100" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKv-O8-ohR">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
@@ -248,7 +248,7 @@
                                                     <constraint firstAttribute="width" secondItem="Q5v-em-ry8" secondAttribute="height" multiplier="13:6" id="xQn-33-VTm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="BelleroseLight" family="Bellerose" pointSize="17"/>
-                                                <inset key="titleEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="titleEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="15"/>
                                                 <state key="normal" backgroundImage="bitscore"/>
                                             </button>
                                         </subviews>
@@ -307,31 +307,29 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-sK-r9R">
-                                <rect key="frame" x="10" y="90" width="355" height="217.5"/>
+                                <rect key="frame" x="10" y="90" width="355" height="211.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_0033.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Rg-hq-nKS">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="218"/>
+                                        <rect key="frame" x="5" y="0.0" width="345" height="211.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0Rg-hq-nKS" secondAttribute="height" multiplier="31:19" id="vTT-LE-bne"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="framepng.png" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-FZ-VNM">
-                                        <rect key="frame" x="-10" y="-5" width="374" height="227.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="wQX-FZ-VNM" secondAttribute="height" multiplier="23:14" id="IMV-fC-ixc"/>
-                                        </constraints>
+                                        <rect key="frame" x="-5" y="-10" width="365" height="231.5"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="wQX-FZ-VNM" firstAttribute="leading" secondItem="bGc-sK-r9R" secondAttribute="leading" constant="-10" id="1ZR-th-mzm"/>
                                     <constraint firstItem="0Rg-hq-nKS" firstAttribute="top" secondItem="bGc-sK-r9R" secondAttribute="top" id="Ahz-ad-kcB"/>
-                                    <constraint firstItem="wQX-FZ-VNM" firstAttribute="centerY" secondItem="bGc-sK-r9R" secondAttribute="centerY" id="Jyd-h4-dkO"/>
                                     <constraint firstItem="0Rg-hq-nKS" firstAttribute="centerY" secondItem="bGc-sK-r9R" secondAttribute="centerY" id="Lar-PL-WzO"/>
-                                    <constraint firstItem="wQX-FZ-VNM" firstAttribute="top" secondItem="bGc-sK-r9R" secondAttribute="top" constant="-5" id="SS7-cp-kxw"/>
+                                    <constraint firstItem="wQX-FZ-VNM" firstAttribute="bottom" secondItem="0Rg-hq-nKS" secondAttribute="bottom" constant="10" id="NqK-Yd-DN4"/>
+                                    <constraint firstItem="wQX-FZ-VNM" firstAttribute="trailing" secondItem="0Rg-hq-nKS" secondAttribute="trailing" constant="10" id="T3G-30-iws"/>
                                     <constraint firstItem="0Rg-hq-nKS" firstAttribute="centerX" secondItem="bGc-sK-r9R" secondAttribute="centerX" id="a67-sc-3aA"/>
-                                    <constraint firstItem="0Rg-hq-nKS" firstAttribute="leading" secondItem="bGc-sK-r9R" secondAttribute="leading" id="zBr-Hh-JhY"/>
+                                    <constraint firstItem="wQX-FZ-VNM" firstAttribute="leading" secondItem="0Rg-hq-nKS" secondAttribute="leading" constant="-10" id="pch-YE-ghT"/>
+                                    <constraint firstItem="wQX-FZ-VNM" firstAttribute="top" secondItem="0Rg-hq-nKS" secondAttribute="top" constant="-10" id="pwU-Jm-AFM"/>
+                                    <constraint firstItem="0Rg-hq-nKS" firstAttribute="leading" secondItem="bGc-sK-r9R" secondAttribute="leading" constant="5" id="zBr-Hh-JhY"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="SkipStack" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-F4-c8b" userLabel="Function Stack View">
@@ -453,7 +451,7 @@
                             <constraint firstAttribute="trailing" secondItem="bGc-sK-r9R" secondAttribute="trailing" constant="10" id="UdR-YT-Tfb"/>
                             <constraint firstItem="i9N-F4-c8b" firstAttribute="centerX" secondItem="gVR-0y-76C" secondAttribute="centerX" id="XDu-sR-fxc"/>
                             <constraint firstItem="bGc-sK-r9R" firstAttribute="leading" secondItem="gVR-0y-76C" secondAttribute="leading" constant="10" id="YLI-gR-az9"/>
-                            <constraint firstItem="PEy-OZ-XEA" firstAttribute="top" secondItem="bGc-sK-r9R" secondAttribute="bottom" constant="5" id="Zlr-Mr-Wgk"/>
+                            <constraint firstItem="PEy-OZ-XEA" firstAttribute="top" secondItem="bGc-sK-r9R" secondAttribute="bottom" constant="15" id="Zlr-Mr-Wgk"/>
                             <constraint firstAttribute="trailing" secondItem="sB2-Ek-6wz" secondAttribute="trailing" id="cpt-7w-d3K"/>
                             <constraint firstItem="PEy-OZ-XEA" firstAttribute="centerX" secondItem="gVR-0y-76C" secondAttribute="centerX" id="gYi-IZ-aae"/>
                             <constraint firstAttribute="trailing" secondItem="PEy-OZ-XEA" secondAttribute="trailing" id="o6P-Te-BR6"/>
@@ -658,7 +656,6 @@
         <image name="welcome_bg_dhlc.png" width="900" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UaC-Ua-qLT"/>
-        <segue reference="NDf-DV-SoR"/>
+        <segue reference="4aM-O0-fgX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB23805620F347720072C98B"
-               BuildableName = "MultiCollect.app"
-               BlueprintName = "MultiCollect"
-               ReferencedContainer = "container:MultiCollect.xcodeproj">
+               BuildableName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu.app"
+               BlueprintName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu"
+               ReferencedContainer = "container:XFYR64Q4C9.com.anoistudio.duoihinhlaichu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB23805620F347720072C98B"
-            BuildableName = "MultiCollect.app"
-            BlueprintName = "MultiCollect"
-            ReferencedContainer = "container:MultiCollect.xcodeproj">
+            BuildableName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu.app"
+            BlueprintName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu"
+            ReferencedContainer = "container:XFYR64Q4C9.com.anoistudio.duoihinhlaichu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB23805620F347720072C98B"
-            BuildableName = "MultiCollect.app"
-            BlueprintName = "MultiCollect"
-            ReferencedContainer = "container:MultiCollect.xcodeproj">
+            BuildableName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu.app"
+            BlueprintName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu"
+            ReferencedContainer = "container:XFYR64Q4C9.com.anoistudio.duoihinhlaichu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB23805620F347720072C98B"
-            BuildableName = "MultiCollect.app"
-            BlueprintName = "MultiCollect"
-            ReferencedContainer = "container:MultiCollect.xcodeproj">
+            BuildableName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu.app"
+            BlueprintName = "XFYR64Q4C9.com.anoistudio.duoihinhlaichu"
+            ReferencedContainer = "container:XFYR64Q4C9.com.anoistudio.duoihinhlaichu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

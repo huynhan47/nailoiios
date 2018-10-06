@@ -13,36 +13,62 @@ import SQLite
 class WelcomeController : UIViewController
 { 
     let defaults = UserDefaults.standard;
-    var score : String? = " ";
+    var BitCoin : Int = 0;
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var lblBitCoin: UILabel!
     
     
     @IBOutlet weak var ScoreView: UIView!
     @IBAction func ResetGame(_ sender: Any) {
-        self.defaults.set("\"0000\"", forKey: "finishList")
-        defaults.set("\"0000\"", forKey: "skipList")
+        //Add imageview to alert
+        let imgViewTitle2 = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+        
+        
+        //alert.addAction(action)
+        //self.present(alert, animated: true, completion: nil)
+        
+        let dialogMessage2 = UIAlertController(title: "Reset Game", message: "Có Chắc Chắn Chơi Lại Từ Đầu?", preferredStyle: .alert)
+        imgViewTitle2.image = UIImage(named:"e_1")
+        dialogMessage2.view.addSubview(imgViewTitle2)
+        
+        // Create OK button with action handler
+        let ok2 = UIAlertAction(title: "OK Chắc Chắn", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            self.defaults.set("\"0000\"", forKey: "finishList")
+            self.defaults.set("\"0000\"", forKey: "skipList")
+            self.defaults.set(99, forKey: "BitCoin")
+            self.viewDidLoad()
+        })
+        
+        // Create Cancel button with action handlder
+        let cancel2 = UIAlertAction(title: "Lỡ Tay Bấm Nhầm", style: .cancel) { (action) -> Void in
+            print("Cancel button tapped")
+        }
+        
+        //Add OK and Cancel button to dialog message
+        dialogMessage2.addAction(ok2)
+        dialogMessage2.addAction(cancel2)
+        
+        // Present dialog message to user
+        self.present(dialogMessage2, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func ShareGame(_ sender: Any) {
-        
-        let myWebsite = NSURL(string:"http://www.google.com/")
-        let img: UIImage = UIImage(named: "ok_1.png")!
-        
-        guard let url = myWebsite else {
-            print("nothing found")
-            return
-        }
-        
-        let shareItems:Array = [url,img]
-        
-        let activityVC = UIActivityViewController(activityItems: shareItems,applicationActivities: nil)
+//
+//        let myWebsite = NSURL(string:"http://www.google.com/")
+//        let img: UIImage = UIImage(named: "ok_1.png")!
+//
+//        guard let url = myWebsite else {
+//            print("nothing found")
+//            return
+//        }        
+        let extractedExpr = captureScreen();
+        let activityVC = UIActivityViewController(activityItems: [["Game Khó Nhất Quả Đất"], extractedExpr],applicationActivities: nil)
         present(activityVC, animated: true, completion: nil)
-        
         if let popOver = activityVC.popoverPresentationController {
             popOver.sourceView = self.view
-            //popOver.sourceRect =
-            //popOver.barButtonItem
         }
     }
     let path = Bundle.main.path(forResource: "laichu", ofType: "db")
@@ -54,13 +80,12 @@ class WelcomeController : UIViewController
         return true
     }
     override func viewDidLoad() {
-        score =  defaults.string(forKey: "score");
-        if (score == nil)
+        BitCoin =  defaults.integer(forKey: "BitCoin");
+        if (BitCoin == 0)
         {
-            score = "100";
+            BitCoin = 99;
         }
-        print(score!)
-        lblBitCoin.text = score;
+        lblBitCoin.text = String(BitCoin);
         
         finishList =  defaults.string(forKey: "finishList");
         if (finishList == nil)
@@ -94,7 +119,15 @@ class WelcomeController : UIViewController
         print("total ne 1:" +  lblScore.text! )
         
         ScoreView.layer.borderWidth = 3;
-        ScoreView.layer.borderColor = UIColor.white.cgColor;
-        
+        ScoreView.layer.borderColor = UIColor.white.cgColor;        
+    }
+    func captureScreen() -> UIImage {
+        var window: UIWindow? = UIApplication.shared.keyWindow
+        window = UIApplication.shared.windows[0]
+        UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
+        window!.layer.render(in:UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!;
     }
 }

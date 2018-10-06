@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-6346208120635646~4732244213")
+        //GADMobileAds.configure(withApplicationID: "ca-app-pub-6346208120635646~4732244213")
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-8204407936442788~9690688111") // Paper Hero
+        
         return true
         
     }

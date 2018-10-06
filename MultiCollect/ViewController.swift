@@ -24,6 +24,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var heightConst: NSLayoutConstraint!
     @IBOutlet weak var heightConstFrom: NSLayoutConstraint!
    
+    @IBOutlet weak var Banner: GADBannerView!
     @IBAction func btnSkip(_ sender: Any)
     {
       
@@ -34,7 +35,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         //alert.addAction(action)
         //self.present(alert, animated: true, completion: nil)
         
-        let dialogMessage = UIAlertController(title: "Tạm Bỏ Qua", message: "Dùng 50 BitCoin Để Tạm Bỏ Qua", preferredStyle: .alert)
+        let dialogMessage = UIAlertController(title: "Tạm Bỏ Qua", message: "Dùng 10 BitCoin Để Tạm Bỏ Qua", preferredStyle: .alert)
         imgViewTitle.image = UIImage(named:"e_1")
         dialogMessage.view.addSubview(imgViewTitle)
         
@@ -59,10 +60,39 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     
     func skipQuestion()
     {
-        skipList! += (",\"" + currentQuestionID! + "\"")
-        print(skipList!)
-        defaults.set(skipList!, forKey: "skipList")
-        self.viewDidLoad()
+       
+        if(BitCoin < 40)
+        {
+            let imgViewTitle = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+            let dialogMessage = UIAlertController(title: "Hết BitCoin", message: "Xem Video Để Bỏ Qua Câu Hỏi Nhé", preferredStyle: .alert)
+            imgViewTitle.image = UIImage(named:"e_1")
+            dialogMessage.view.addSubview(imgViewTitle)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                print("Ok button tapped")
+                if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+                    GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+                }
+                return;
+            })
+           
+            //Add OK and Cancel button to dialog message
+            dialogMessage.addAction(ok)
+            
+            // Present dialog message to user
+            self.present(dialogMessage, animated: true, completion: nil)
+            
+        }
+        else
+        {
+            skipList! += (",\"" + currentQuestionID! + "\"")
+            print(skipList!)
+            defaults.set(skipList!, forKey: "skipList")
+            BitCoin -= 1
+            defaults.set(BitCoin, forKey: "BitCoin")
+            self.viewDidLoad()
+        }
 
     }
     @IBAction func Bingo(_ sender: Any) {
@@ -83,9 +113,9 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     let max = UIScreen.main.bounds .width;
     var spacing = CGFloat(3) ;
     var size = 3 ;
-    @IBOutlet weak var Banner: GADBannerView!
-    ///let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
-    let path = Bundle.main.path(forResource: "laichu", ofType: "db")
+
+    let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
+    ///let path = Bundle.main.path(forResource: "laichu", ofType: "db")
     
     var imgQuestionName :String = "h_0007";
     var finishList :String? = "\"0000\"";
@@ -94,15 +124,35 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var OrgPuzzleString = "";
     var currentQuestionID : String?;
     var totalQuestionCount :Int64 = 0;
-    var BitCoin : Int = 100
+    var BitCoin : Int = -1
     var finishCount : Int = 0;
     var skipQuestionListFlag : Bool = true;
     var interstitial: GADInterstitial?
     var laiVNI : String = " ";
     var answerVNI : String = " ";
+    let QuynhAkaArray : [String] = ["e_1","e_2","e_3","e_4","e_5","e_6","e_7","e_8"]
+    let QuynhMCArray : [String] = ["QuynhMC_1","QuynhMC_2","QuynhMC_3","QuynhMC_4","QuynhMC_5","QuynhMC_6","QuynhMC_7","QuynhMC_8"]
+    var MessageArray : [String] = [
+        "Sai Rồi Bạn Ơi Thử Lại Nhé",
+        "Sai Rồi! Thử Hỏi Bạn Bè Xem Sao! Nút Share Bên Dưới",
+        "Sai Rồi Bạn Ơi Thử Lại Nhé",
+        "Sai Rồi Bạn Ơi Thử Lại Nhé",
+        "Sai Rồi Bạn Ơi Thử Lại Nhé",
+        "Sai Rồi Bạn Ơi Thử Lại Nhé",
+        "Sai Rồi Bạn Ơi Thử Lại Nhé",
+        "Sai Rồi Bạn Ơi Thử Lại Nhé"]
     
+    
+    @IBOutlet weak var QuynhMC: UIImageView!
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     private func createAndLoadInterstitial() -> GADInterstitial? {
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712")
+        interstitial = GADInterstitial(adUnitID:
+            //"ca-app-pub-3940256099942544/1033173712" //Test
+            ///"ca-app-pub-8204407936442788/4948790453" //Hero Local Inter
+            "ca-app-pub-8204407936442788/2111600477" //Hero Prd Inter
+        )
         
         guard let interstitial = interstitial else {
             return nil
@@ -128,21 +178,31 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
 //
     
     @IBAction func LetShare(_ sender: Any) {
-        let activityVC = UIActivityViewController(activityItems: ["String to share"],applicationActivities: nil)
-        present(activityVC, animated: true, completion: nil)
-        if let popOver = activityVC.popoverPresentationController {
-            popOver.sourceView = self.view
-            //popOver.sourceRect =
-            //popOver.barButtonItem
+            let extractedExpr = captureScreen();
+            let activityVC = UIActivityViewController(activityItems: [["Game Khó Nhất Quả Đất"], extractedExpr],applicationActivities: nil)
+             present(activityVC, animated: true, completion: nil)
+             if let popOver = activityVC.popoverPresentationController {
+                popOver.sourceView = self.view
+            }
         }
         
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        skipQuestionListFlag = true; //reset skipFlag
+        QuynhMC.image = UIImage (named :QuynhMCArray[Int(arc4random_uniform(8))])
         
         currentIndex = 0;
         interstitial = createAndLoadInterstitial()
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+                                                    withAdUnitID:
+        ///    "ca-app-pub-8204407936442788/6787400591"
+        ///"ca-app-pub-3940256099942544/1712485313"
+        ///"ca-app-pub-8204407936442788/3125279764" //Paper Hero Local Video
+        "ca-app-pub-8204407936442788/6787400591" //Paper Hero Prd Video
+        )
         ///defaults.set("\"0000\",\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"", forKey: "skipList")
         print(shuffle(array: puzzText))
         from.delegate = self;
@@ -156,9 +216,15 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.reloadData();
         //Ad
         
-        Banner.adUnitID="ca-app-pub-3940256099942544/2934735716";
+        ///Banner.adUnitID = "ca-app-pub-4345988626634460/8118253004";
+        ///Banner.adUnitID = "ca-app-pub-3940256099942544/2934735716";//Test
+        ///Banner.adUnitID = "ca-app-pub-8204407936442788/6745798291" //Hero Local
+        Banner.adUnitID = "ca-app-pub-8204407936442788/9857803526" //Hero PRD
+      
+
         Banner.rootViewController = self
         Banner.load(GADRequest());
+        Banner.delegate = self;
         ////////
         imgQuestion.image = UIImage(named: "clock");
         ///////
@@ -217,10 +283,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         print(finishList!)
         
        skipList =  defaults.string(forKey: "skipList");
-        //if (skipList == nil)
-        //{
-            //skipList = "\"0009\",\"0014\",\"0014\",\"0016\",\"0017\"";
-        //}
+        if (skipList == nil)
+        {
+            skipList = "\"0000\"";
+        }
         print(skipList!)
         
         //defaults.set("\"0003\"", forKey: "finishList")
@@ -231,11 +297,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         //}
         print(finishList!)
         
-        
         BitCoin =  defaults.integer(forKey: "BitCoin");
         if (BitCoin == 0)
         {
-            BitCoin = 100;
+            BitCoin = 99;
         }
         print(BitCoin)
         btnBitScore.setTitle(String(BitCoin), for: .normal)
@@ -248,23 +313,31 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         var rows = try! db!.prepare(sql)
         for _ in rows
         {
-            skipQuestionListFlag = false
+            skipQuestionListFlag = false //if rows != 0
         }
         if (skipQuestionListFlag == true)
         {
-
+  
             sql = "SELECT * FROM LAICHU WHERE ID  IN ("  + skipList! + ") ORDER BY "
             print("sql ne 2: " + sql)
             var orderBy = "CASE id ";
             var skipArray = skipList!.split(separator: ",")
-            for  index in  1 ... (skipArray.count - 1 ) {
+            if(skipArray.count - 1 > 0)
+            {
+                for  index in  1 ... (skipArray.count - 1 )
+                {
                 orderBy.append(" WHEN " + String(skipArray[index]) + " THEN " + String(index) );
-            }
+                }
             
-            orderBy.append(" END LIMIT 1");
-            sql.append(orderBy);
-            print(sql)
-            rows = try! db!.prepare(sql)
+                orderBy.append(" END LIMIT 1");
+                sql.append(orderBy);
+                print(sql)
+                rows = try! db!.prepare(sql)
+            }
+            else
+            {
+               
+            }
         }
         
         for row in rows
@@ -273,6 +346,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             currentQuestionID =  (row[0]) as? String
             skipList = skipList!.replacingOccurrences(of: ",\"" + currentQuestionID! + "\"", with: "")
             print("skipListAfter replace" + skipList!)
+            defaults.set(skipList!, forKey: "skipList")
             imgQuestionName =  "h_" + currentQuestionID!
             OrgPuzzleString = row[2] as! String
             answerText = Array<String>(repeating: " ", count: OrgPuzzleString.split(separator: "_").count)
@@ -303,10 +377,13 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         for row in try! db!.prepare(sql_count)
         {
              print("total ne 1: \(row[0]!)")
+
              totalQuestionCount = row[0]! as! Int64
         }
         
         finishCount = finishList!.split(separator: ",").count;
+        print("finishCount ne 1: " + String(finishCount))
+        
         lblProgress.text = String(finishCount - 1) + "/" + String(totalQuestionCount);
         //User Default - End
         
@@ -354,13 +431,32 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         target.contentInset.top = 0;
         target.reloadData();
     }
-    override func viewWillAppear(_ animated: Bool) {
-    
-        //let  height =  target.collectionViewLayout.collectionViewContentSize.height;
-        //heightConst.constant = height
-        //print("height1")
-        //print(height)
-        //target.reloadData();
+    override func viewDidAppear(_ animated: Bool) {
+        if (finishCount - 1  == totalQuestionCount)
+        {
+            //Add imageview to alert
+            let imgViewTitle2 = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+            
+            //alert.addAction(action)
+            //self.present(alert, animated: true, completion: nil)
+            
+            let dialogMessage2 = UIAlertController(title: "Đã Hoàn Thành", message: "Hãy Reset Game Để Chơi Lại Nhé", preferredStyle: .alert)
+            imgViewTitle2.image = UIImage(named:"e_1")
+            dialogMessage2.view.addSubview(imgViewTitle2)
+            
+            // Create OK button with action handler
+            let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                print("Ok button tapped")
+                self.performSegue(withIdentifier: "Welcome", sender: self)
+            })
+            
+            
+            //Add OK and Cancel button to dialog message
+            dialogMessage2.addAction(ok2)
+            
+            // Present dialog message to user
+            self.present(dialogMessage2, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -434,7 +530,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     }
     func captureScreen() -> UIImage {
         var window: UIWindow? = UIApplication.shared.keyWindow
-        window = UIApplication.shared.windows[0] as? UIWindow
+        window = UIApplication.shared.windows[0]
         UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
         window!.layer.render(in:UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -501,13 +597,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
           ///      print("completion without tap")
            /// }
        /// }
-        
-        ///let extractedExpr = captureScreen();
-        ///let activityVC = UIActivityViewController(activityItems: [["String to share"], extractedExpr],applicationActivities: nil)
-       /// present(activityVC, animated: true, completion: nil)
-       /// if let popOver = activityVC.popoverPresentationController {
-        ///    popOver.sourceView = self.view
-        ///}
             
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -535,10 +624,9 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         if (AnswerString == OrgPuzzleString)
         {
             print("Bingo");
-            finishList! += (",\"" + currentQuestionID! + "\"")
+            finishList! += (",\"" + currentQuestionID! + "\"")           
+            defaults.set(finishList, forKey: "finishList")
             BitCoin += 10
-            
-            defaults.set(finishList!, forKey: "finishList")
             defaults.set(BitCoin, forKey: "BitCoin")
             
             //Load Ad
@@ -548,17 +636,6 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         else
         {
             print("Wrong");
-           
-            var QuynhAkaArray : [String] = ["e_1","e_2","e_3","e_4","e_5","e_6","e_7","e_8"]
-            var MessageArray : [String] = [
-                "Sai Rồi Bạn Ơi Thử Lại Nhé",
-                "Sai Rồi! Thử Hỏi Bạn Bè Xem Sao! Nút Share Bên Dưới",
-                "Sai Rồi Bạn Ơi Thử Lại Nhé",
-                "Sai Rồi Bạn Ơi Thử Lại Nhé",
-                "Sai Rồi Bạn Ơi Thử Lại Nhé",
-                "Sai Rồi Bạn Ơi Thử Lại Nhé",
-                "Sai Rồi Bạn Ơi Thử Lại Nhé",
-                "Sai Rồi Bạn Ơi Thử Lại Nhé"]
   
             let indexImage = Int(arc4random_uniform(6));
             let indexMessage = Int(arc4random_uniform(6));
@@ -624,7 +701,7 @@ extension ViewController: GADBannerViewDelegate {
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print("Fail to receive ads")
+        print("Fail to receive ads Banner")
         print(error)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -640,16 +717,67 @@ extension ViewController: GADBannerViewDelegate {
 extension ViewController: GADInterstitialDelegate {
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         print("Interstitial loaded successfully")
-        ///ad.present(fromRootViewController: self)
+        if(GlobalVar.interAdsRate % 3 == 0)
+        {
+            ad.present(fromRootViewController: self)
+        }
     }
-    
+//    func didFailToReceiveAdWithError()
+//    {
+//
+//    }
     func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
         print("Fail to receive interstitial")
     }
     func interstitialDidDismissScreen(_ ad: GADInterstitial)
     {
-        performSegue(withIdentifier: "Bingo", sender: self)
+        ///performSegue(withIdentifier: "Bingo", sender: self)
     }
+}
+extension ViewController: GADRewardBasedVideoAdDelegate {
+func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                        didRewardUserWith reward: GADAdReward) {
+    print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+    print("Reward based video ad has completed.")
+    skipList! += (",\"" + currentQuestionID! + "\"")
+    print(skipList!)
+    defaults.set(skipList!, forKey: "skipList")
+    self.viewDidLoad()
+}
+
+func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+    print("Reward based video ad is received.")
+}
+
+func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+    print("Opened reward based video ad.")
+}
+
+func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+    print("Reward based video ad started playing.")
+}
+
+func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+    print("Reward based video ad has completed.")
+    skipList! += (",\"" + currentQuestionID! + "\"")
+    print(skipList!)
+    defaults.set(skipList!, forKey: "skipList")
+    self.viewDidLoad()
+}
+
+func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+    print("Reward based video ad is closed.")
+    self.viewDidLoad();
+}
+
+func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+    print("Reward based video ad will leave application.")
+}
+
+func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                        didFailToLoadWithError error: Error) {
+    print("Reward based video ad failed to load.")
+}
 }
 extension String {
     func subString(from: Int, to: Int) -> String {

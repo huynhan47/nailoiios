@@ -61,7 +61,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     func skipQuestion()
     {
        
-        if(BitCoin < 40)
+        if(BitCoin == 0)
         {
             let imgViewTitle = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
             let dialogMessage = UIAlertController(title: "Hết BitCoin", message: "Xem Video Để Bỏ Qua Câu Hỏi Nhé", preferredStyle: .alert)
@@ -89,7 +89,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
             skipList! += (",\"" + currentQuestionID! + "\"")
             print(skipList!)
             defaults.set(skipList!, forKey: "skipList")
-            BitCoin -= 1
+            BitCoin -= 10
             defaults.set(BitCoin, forKey: "BitCoin")
             self.viewDidLoad()
         }
@@ -114,8 +114,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var spacing = CGFloat(3) ;
     var size = 3 ;
 
-    let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
-    ///let path = Bundle.main.path(forResource: "laichu", ofType: "db")
+    ///let path = Bundle.main.path(forResource: "laichu1", ofType: "sqlite")
+    let path = Bundle.main.path(forResource: "laichu", ofType: "db")
     
     var imgQuestionName :String = "h_0007";
     var finishList :String? = "\"0000\"";
@@ -124,7 +124,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
     var OrgPuzzleString = "";
     var currentQuestionID : String?;
     var totalQuestionCount :Int64 = 0;
-    var BitCoin : Int = -1
+    var BitCoin : Int = 0
     var finishCount : Int = 0;
     var skipQuestionListFlag : Bool = true;
     var interstitial: GADInterstitial?
@@ -298,10 +298,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         print(finishList!)
         
         BitCoin =  defaults.integer(forKey: "BitCoin");
-        if (BitCoin == 0)
-        {
-            BitCoin = 99;
-        }
+//        if (BitCoin == 0)
+//        {
+//            BitCoin = 30;
+//        }
         print(BitCoin)
         btnBitScore.setTitle(String(BitCoin), for: .normal)
         //User Default - Start

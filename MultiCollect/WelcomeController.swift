@@ -36,7 +36,7 @@ class WelcomeController : UIViewController
             print("Ok button tapped")
             self.defaults.set("\"0000\"", forKey: "finishList")
             self.defaults.set("\"0000\"", forKey: "skipList")
-            self.defaults.set(99, forKey: "BitCoin")
+            self.defaults.set(30, forKey: "BitCoin")
             self.viewDidLoad()
         })
         
@@ -64,8 +64,9 @@ class WelcomeController : UIViewController
 //            print("nothing found")
 //            return
 //        }        
-        let extractedExpr = captureScreen();
-        let activityVC = UIActivityViewController(activityItems: [["Game Khó Nhất Quả Đất"], extractedExpr],applicationActivities: nil)
+        let extractedExpr1: UIImage = UIImage(named: "qr.png")!;
+        let extractedExpr2: UIImage = UIImage(named: "share2.jpg")!;
+        let activityVC = UIActivityViewController(activityItems: [["Game Khó Nhất Quả Đất"],extractedExpr1,extractedExpr2],applicationActivities: nil)
         present(activityVC, animated: true, completion: nil)
         if let popOver = activityVC.popoverPresentationController {
             popOver.sourceView = self.view
@@ -83,8 +84,9 @@ class WelcomeController : UIViewController
         BitCoin =  defaults.integer(forKey: "BitCoin");
         if (BitCoin == 0)
         {
-            BitCoin = 99;
+            BitCoin = 30;
         }
+        defaults.set(BitCoin, forKey: "BitCoin")
         lblBitCoin.text = String(BitCoin);
         
         finishList =  defaults.string(forKey: "finishList");

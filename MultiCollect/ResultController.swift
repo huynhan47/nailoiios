@@ -52,7 +52,10 @@ class ResultController : UIViewController
         adBanner.adUnitID = "ca-app-pub-8204407936442788/6745798291"; //Hero
  
         adBanner.rootViewController = self
-        adBanner.load(GADRequest());
+        let  request = GADRequest();
+        request.testDevices = [ "5d32c58b82e0a5043fe3c7f684a9a066" ];
+        
+        adBanner.load(request);
         
         LaiView.layer.borderColor = UIColor.white.cgColor;
         LaiView.layer.borderWidth = 5;

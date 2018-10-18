@@ -449,7 +449,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12957715989999999" green="0.31648448109999999" blue="0.4902872741" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="kYr-Xy-KVy" firstAttribute="top" secondItem="nhL-Zs-K4d" secondAttribute="bottom" id="0Qd-80-Y7h"/>
                             <constraint firstItem="bGc-sK-r9R" firstAttribute="top" secondItem="sB2-Ek-6wz" secondAttribute="bottom" constant="10" id="1HW-pI-t4w"/>
                             <constraint firstAttribute="trailing" secondItem="gf7-37-aIa" secondAttribute="trailing" id="8rX-jC-vJ4"/>
                             <constraint firstItem="kYr-Xy-KVy" firstAttribute="top" secondItem="gf7-37-aIa" secondAttribute="bottom" constant="1.9999999999997726" id="9Eu-Dr-F0Y"/>
@@ -663,6 +662,6 @@
         <image name="welcome_bg_dhlc.png" width="900" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4aM-O0-fgX"/>
+        <segue reference="NDf-DV-SoR"/>
     </inferredMetricsTieBreakers>
 </document>

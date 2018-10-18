@@ -159,8 +159,7 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         }
         
         let request = GADRequest()
-        // Remove the following line before you upload the app
-        request.testDevices = [ kGADSimulatorID ]
+        request.testDevices = [ "5d32c58b82e0a5043fe3c7f684a9a066" ];
         interstitial.load(request)
         interstitial.delegate = self
         
@@ -196,7 +195,10 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
         currentIndex = 0;
         interstitial = createAndLoadInterstitial()
         GADRewardBasedVideoAd.sharedInstance().delegate = self
-        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+        let request = GADRequest()
+        
+        request.testDevices = [ "5d32c58b82e0a5043fe3c7f684a9a066" ];
+        GADRewardBasedVideoAd.sharedInstance().load(request,
                                                     withAdUnitID:
         ///    "ca-app-pub-8204407936442788/6787400591"
         ///"ca-app-pub-3940256099942544/1712485313"
@@ -223,7 +225,8 @@ class ViewController: UIViewController , UICollectionViewDelegate,UICollectionVi
       
 
         Banner.rootViewController = self
-        Banner.load(GADRequest());
+        
+        Banner.load(request);
         Banner.delegate = self;
         ////////
         imgQuestion.image = UIImage(named: "clock");
